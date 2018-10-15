@@ -65,9 +65,10 @@ tar xzvf git-2.19.1.tar.gz
 Ya podemos compilar e instalar. Haremos la instalación en $HOME/dev/git/git-2-19.1.
 
 ```
+$ mkdir $DEVBASE/git
 $ cd git-2.19.1
 $ make configure
-$ ./configure --prefix=$HOME/dev/git/git-2.19.1
+$ ./configure --prefix=$DEV_BASE/git/git-2.19.1
 $ make all
 $ make install
 ```
@@ -88,3 +89,61 @@ export GIT_HOME=$DEV_BASE/git/default
 export PATH=$GIT_HOME/bin:$PATH
 ```
 
+## Python
+
+Instalamos Python desde el código fuente. Primero instalamos el paquete libffi-dev` necesario para la compilación:
+
+```
+$ sudo apt install libffi-dev
+```
+
+Compilamos e instalamos:
+
+```
+$ mkdir $DEV_BASE/python
+$ cp $SRC/python/Python-3.7.0.tgz $DEV_BASE/tmp
+$ cd $DEV_BASE/tmp
+$ cd tar xzvf Python-3.7.0.tgz
+$ cd Python-3.7.0
+$ ./configure --prefix=$DEV_BASE/python/python-3.7.0
+$ make
+$ make install
+```
+
+Creamos el enlace `default` a la versión que queremos usar por defecto *(https://bugs.python.org/issue30090)*:
+
+```
+$ ln -s $DEV_BASE/python/python-3.7.0 $DEV_BASE/python/default
+```
+
+### Configuración
+
+Añadimos la siguiente configuración a `$DEV_BASE/bash_profile`:
+
+```
+# Python config
+export PYTHONPATH=$DEV_BASE/python/default
+export PATH=$PYTHONPATH/bin:$PATH
+```
+
+Hacemos un sourcing de la configuración:
+
+```
+$ source $DEV_BASE/bash_profile
+```
+
+### Actualizamos pip
+
+```
+$ pip3 install --upgrade pip
+```
+
+### Creación de entornos virtuales
+
+Para crear entornos virtuales utiliamos `venv`. Creamos un directorio para el código fuente Python en nuestro entorno y creamos un entorno virtual de base con Python 3:
+
+```
+$ mkdir $DEV_BASE/code/python
+$ cd $DEV_BASE/code/python
+$ python3 -m venv env-python3.7
+```
