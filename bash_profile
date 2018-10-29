@@ -10,3 +10,8 @@ export PATH=$GIT_HOME/bin:$PATH
 # Python config
 export PYTHONPATH=$DEV_BASE/python/default
 export PATH=$PYTHONPATH/bin:$PATH
+
+# Go config
+export GOROOT=$DEV_BASE/go/default
+export GOPATH=$DEV_BASE/code/go
+export PATH=$GOROOT/bin:$PATH
