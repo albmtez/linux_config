@@ -4,7 +4,7 @@ Vamos a hacer la instalación y configuración de un entorno de desarrollo multi
 
 La instalación se basa en una serie de binarios, código fuente e instaladores que se han descargado de las páginas de referencia de cada herramienta o aplicación y que se han agrupado en una estructura de directorios (que llamaremos `$SRC`). Si quieres seguir esta guía, puedes recuperar estos archivos de las distintas páginas de descarga.
 
-La instalación se realiza sobre un **Ubuntu 18.04**.
+La instalación se realiza sobre un **Ubuntu 18.10**.
 
 ## Preparación del directorio base
 
@@ -40,6 +40,26 @@ Y lo inicializamos con el siguiente contenido:
 
 # Dev base dir
 export DEV_BASE=$HOME/dev
+```
+
+## Instalación de herramientas base desde el repositorio de paquetes
+
+Instalamos los siguientes paquetes por apt:
+- Build essential
+- Subversion
+- CVS
+- Git (con los paquetes de integración con subversion y CVS)
+- Ant
+- Maven
+- Linux Headers
+- OpenJDK 8 y OpenJDK 11
+
+Algunas de estas herramientas serán "sustituidas" por versiones concretas más adelante.
+
+Para instalarlas, ejecutamos el comando:
+
+```
+$ sudo apt install build-essential git cvs subversion mercurial maven ant etckeeper git-cvs git-svn subversion-tools openjdk-8-jdk openjdk-11-jdk
 ```
 
 ## Git
@@ -146,4 +166,43 @@ Para crear entornos virtuales utiliamos `venv`. Creamos un directorio para el c�
 $ mkdir $DEV_BASE/code/python
 $ cd $DEV_BASE/code/python
 $ python3 -m venv env-python3.7
+```
+
+## Golang
+
+*Al hacer los untar, utilizaremos la opción **--no-same-permissions** para que tome el umask del usuario*
+
+Recuperamos los binarios de las distintas versiones de Go de `$SRC/golang`. Los descomprimimos en `$DEV_BASE/go` y creamos un enlace **default** al directorio de la versión que queremos usar por defecto, con lo que tendríamos:
+
+```
+user@host:~/dev/go$ ls -l
+total 32
+lrwxrwxrwx  1 user group    8 Oct 24 15:40 default -> go1.11.1
+drwx------ 11 user group 4096 Feb 16  2018 go1.10.0
+drwx------ 11 user group 4096 Mar 29  2018 go1.10.1
+drwx------ 11 user group 4096 Apr 30 22:34 go1.10.2
+drwx------ 11 user group 4096 Jun  7 02:12 go1.10.3
+drwx------ 10 user group 4096 Aug 24 21:35 go1.10.4
+drwx------ 10 user group 4096 Aug 24 22:41 go1.11.0
+drwx------ 10 user group 4096 Oct  1 23:02 go1.11.1
+drwx------ 11 user group 4096 Jun  6 21:49 go1.9.7
+```
+
+Creamos el directorio `$DEV_BASE/code/go`y los subdirectorios `src`, `pkg` y `bin`, que nos servirán como directorios de trabajo para nuestro código:
+
+```
+$ mkdir -p $DEV_BASE/code/go/src
+$ mkdir -p $DEV_BASE/code/go/pkg
+$ mkdir -p $DEV_BASE/code/go/bin
+```
+
+### Configuración
+
+Añadimos la siguiente configuración a `$DEV_BASE/bash_profile`:
+
+```
+# Go config
+export GOROOT=$DEV_BASE/go/default
+export GOPATH=$DEV_BASE/code/go
+export PATH=$GOROOT/bin:$PATH
 ```
