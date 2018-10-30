@@ -152,12 +152,6 @@ Hacemos un sourcing de la configuración:
 $ source $DEV_BASE/bash_profile
 ```
 
-### Actualizamos pip
-
-```
-$ pip3 install --upgrade pip
-```
-
 ### Creación de entornos virtuales
 
 Para crear entornos virtuales utiliamos `venv`. Creamos un directorio para el código fuente Python en nuestro entorno y creamos un entorno virtual de base con Python 3:
@@ -165,7 +159,7 @@ Para crear entornos virtuales utiliamos `venv`. Creamos un directorio para el c�
 ```
 $ mkdir $DEV_BASE/code/python
 $ cd $DEV_BASE/code/python
-$ python3 -m venv env-python3.7.1
+$ python3 -m venv env-python-3.7.1
 ```
 
 ## Golang
