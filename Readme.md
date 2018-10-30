@@ -121,11 +121,11 @@ Compilamos e instalamos:
 
 ```
 $ mkdir $DEV_BASE/python
-$ cp $SRC/python/Python-3.7.0.tgz $DEV_BASE/tmp
+$ cp $SRC/python/Python-3.7.1.tgz $DEV_BASE/tmp
 $ cd $DEV_BASE/tmp
-$ cd tar xzvf Python-3.7.0.tgz
-$ cd Python-3.7.0
-$ ./configure --prefix=$DEV_BASE/python/python-3.7.0
+$ cd tar xzvf Python-3.7.1.tgz
+$ cd Python-3.7.1
+$ ./configure --prefix=$DEV_BASE/python/python-3.7.1
 $ make
 $ make install
 ```
@@ -133,7 +133,7 @@ $ make install
 Creamos el enlace `default` a la versión que queremos usar por defecto *(https://bugs.python.org/issue30090)*:
 
 ```
-$ ln -s $DEV_BASE/python/python-3.7.0 $DEV_BASE/python/default
+$ ln -s $DEV_BASE/python/python-3.7.1 $DEV_BASE/python/default
 ```
 
 ### Configuración
@@ -165,7 +165,7 @@ Para crear entornos virtuales utiliamos `venv`. Creamos un directorio para el c�
 ```
 $ mkdir $DEV_BASE/code/python
 $ cd $DEV_BASE/code/python
-$ python3 -m venv env-python3.7
+$ python3 -m venv env-python3.7.1
 ```
 
 ## Golang
