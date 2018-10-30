@@ -59,7 +59,7 @@ Algunas de estas herramientas serán "sustituidas" por versiones concretas más 
 Para instalarlas, ejecutamos el comando:
 
 ```
-$ sudo apt install build-essential git cvs subversion mercurial maven ant etckeeper git-cvs git-svn subversion-tools openjdk-8-jdk openjdk-11-jdk
+$ sudo apt install build-essential git-all cvs subversion mercurial maven ant etckeeper git-cvs git-svn subversion-tools openjdk-8-jdk openjdk-11-jdk
 ```
 
 ## Git
