@@ -71,15 +71,15 @@ Podemos instalar git desde el gestor de paquetes apt con `sudo apt install git-a
 Para compilar el código fuente de git necesitamos instalar unos paquetes:
 
 ```
-sudo apt install dh-autoreconf libcurl4-gnutls-dev libexpat1-dev gettext libz-dev \
+$ sudo apt install dh-autoreconf libcurl4-gnutls-dev libexpat1-dev gettext libz-dev \
                  libssl-dev asciidoc xmlto docbook2x install-info
 ```
 
 Recuperamos el código fuente y descomprimimos:
 
 ```
-cp $SRC/git/git-2.19.1.tar.gz $DEV_BASE/tmp
-tar xzvf git-2.19.1.tar.gz
+$ cp $SRC/git/git-2.19.1.tar.gz $DEV_BASE/tmp --no-same-permissions
+$ tar xzvf git-2.19.1.tar.gz
 ```
 
 Ya podemos compilar e instalar. Haremos la instalación en $HOME/dev/git/git-2-19.1.
