@@ -200,3 +200,26 @@ export GOROOT=$DEV_BASE/go/default
 export GOPATH=$DEV_BASE/code/go
 export PATH=$GOROOT/bin:$PATH
 ```
+
+## Node.js
+
+*https://github.com/nodejs/help/wiki/Installation*
+
+Recuperamos los binarios de las distintas versiones de `$SRC/nodejs`. Los descomprimimos en `$DEV_BASE/nodejs` y creamos un enlace **default** al directorio de la versión que queremos usar por defecto, con lo que tendríamos:
+
+```
+user@host:~/dev/nodejs$ ll
+total 4
+lrwxrwxrwx 1 user group   12 Nov  7 08:33 default -> node-v11.1.0
+drwx------ 6 user group 4096 Nov  2 10:27 node-v11.1.0
+```
+
+### Configuración
+
+Añadimos la siguiente configuración a `$DEV_BASE/bash_profile`:
+
+```
+# NodeJS config
+export NODEJS_HOME=$DEV_BASE/nodejs/default/bin
+export PATH=$NODEJS_HOME:$PATH
+```
