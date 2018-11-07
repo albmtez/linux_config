@@ -269,3 +269,36 @@ Instalamos PrimeNG y Prime Icons *(https://www.primefaces.org/primeng/#/setup)*:
 $ npm install primeng --save
 $ npm install primeicons --save
 ```
+
+## Oracle JDK
+
+Recuperamos los binarios de las distintas versiones de `$SRC/java`. Los descomprimimos en `$DEV_BASE/jdk` y creamos un enlace **default** al directorio de la versión que queremos usar por defecto, con lo que tendríamos:
+
+```
+user@host:~/dev/jdk$ ll
+total 52
+lrwxrwxrwx 1 user group   10 Nov  7 15:52 default -> jdk-11.0.1
+drwx------ 8 user group 4096 Nov  7 15:49 jdk-10
+drwx------ 8 user group 4096 Nov  7 15:50 jdk-10.0.1
+drwx------ 8 user group 4096 Nov  7 15:50 jdk-10.0.2
+drwx------ 8 user group 4096 Nov  7 15:57 jdk-11
+drwx------ 8 user group 4096 Nov  7 15:51 jdk-11.0.1
+drwx------ 8 user group 4096 Apr 11  2015 jdk1.7.0_80
+drwx------ 8 user group 4096 Mar 29  2018 jdk1.8.0_171
+drwx------ 8 user group 4096 Mar 29  2018 jdk1.8.0_172
+drwx------ 7 user group 4096 Oct  6 14:55 jdk1.8.0_191
+drwx------ 7 user group 4096 Oct  6 15:58 jdk1.8.0_192
+drwx------ 8 user group 4096 Nov  7 15:48 jdk-9
+drwx------ 8 user group 4096 Nov  7 15:48 jdk-9.0.1
+drwx------ 8 user group 4096 Nov  7 15:49 jdk-9.0.4
+```
+
+### Configuración
+
+Añadimos la siguiente configuración a `$DEV_BASE/bash_profile`:
+
+```
+# Java config
+export JAVA_HOME=$DEV_BASE/jdk/default
+export PATH=$JAVA_HOME/bin:$PAT
+```
