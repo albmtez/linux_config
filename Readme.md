@@ -245,7 +245,11 @@ $ ng serve
 
 Accedemos a la url (http://localhost:4200/) para comprobar que la aplicación está levantada.
 
-### Angular Material
+### Instalación de módulos en un proyecto
+
+Podemos usar `npm` para instalar paquetes en un determinado proyecto.
+
+#### Angular Material
 
 *https://material.angular.io/*
 
@@ -255,7 +259,7 @@ Instalamos Angular Material, Angular CDK y Angular Animations *(https://material
 $ npm install --save @angular/material @angular/cdk @angular/animations
 ```
 
-### PrimeNG
+#### PrimeNG
 
 *https://www.primefaces.org/primeng/*
 
