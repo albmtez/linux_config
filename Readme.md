@@ -302,3 +302,73 @@ Añadimos la siguiente configuración a `$DEV_BASE/bash_profile`:
 export JAVA_HOME=$DEV_BASE/jdk/default
 export PATH=$JAVA_HOME/bin:$PATH
 ```
+
+## Glassfish
+
+*https://javaee.github.io/*
+*https://javaee.github.io/glassfish/*
+
+Recuperamos los zip con los binarios de `$SRC/glassfish` correspondientes a las distintas versiones y los descomprimimos en `DEV_BASE/glassfish`:
+
+```
+user@host:~/dev$ ll glassfish/
+total 4
+drwxr-xr-x 6 user group 4096 Sep  8  2017 glassfish5
+```
+
+## Apache Maven
+
+Recuperamos los binarios de las distintas versiones de `$SRC/apache-maven`. Los descomprimimos en `$DEV_BASE/apache-maven` y creamos un enlace **default** al directorio de la versión que queremos usar por defecto, con lo que tendríamos:
+
+```
+user@host:~/dev/apache-maven$ ll
+total 8
+drwx------ 6 user group 4096 Nov  7 16:56 apache-maven-3.5.4
+drwx------ 6 user group 4096 Nov  7 16:54 apache-maven-3.6.0
+lrwxrwxrwx 1 user group   18 Nov  7 16:54 default -> apache-maven-3.6.0
+```
+
+### Configuración
+
+Añadimos la siguiente configuración a `$DEV_BASE/bash_profile`:
+
+```
+# Maven config
+export MAVEN_HOME=$DEV_BASE/apache-maven/default
+export PATH=$MAVEN_HOME/bin:$PATH
+```
+
+## Apache Ant
+
+Recuperamos los binarios de las distintas versiones de `$SRC/apache-ant`. Los descomprimimos en `$DEV_BASE/apache-ant` y creamos un enlace **default** al directorio de la versión que queremos usar por defecto, con lo que tendríamos:
+
+```
+user@host:~/dev/apache-ant$ ll
+total 8
+drwx------ 6 user group 4096 Jul 10 06:49 apache-ant-1.10.5
+drwx------ 6 user group 4096 Jul 10 06:18 apache-ant-1.9.13
+lrwxrwxrwx 1 user group   17 Nov  7 17:06 default -> apache-ant-1.10.5
+```
+
+### Configuración
+
+Añadimos la siguiente configuración a `$DEV_BASE/bash_profile`:
+
+```
+# Maven config
+export ANT_HOME=$DEV_BASE/apache-ant/default
+export PATH=$ANT_HOME/bin:$PATH
+```
+
+## Apache Tomcat
+
+Recuperamos los binarios de las distintas versiones de `$SRC/apache-tomcat`. Los descomprimimos en `$DEV_BASE/apache-tomcat`:
+
+```
+user@host:~/dev/apache-tomcat$ ll
+total 16
+drwx------ 9 user group 4096 Nov  7 17:13 apache-tomcat-7.0.91
+drwx------ 9 user group 4096 Nov  7 17:13 apache-tomcat-8.0.53
+drwx------ 9 user group 4096 Nov  7 17:13 apache-tomcat-8.5.34
+drwx------ 9 user group 4096 Nov  7 17:13 apache-tomcat-9.0.12
+```
