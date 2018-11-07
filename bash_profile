@@ -23,3 +23,11 @@ export PATH=$NODEJS_HOME:$PATH
 # Java config
 export JAVA_HOME=$DEV_BASE/jdk/default
 export PATH=$JAVA_HOME/bin:$PATH
+
+# Maven config
+export MAVEN_HOME=$DEV_BASE/apache-maven/default
+export PATH=$MAVEN_HOME/bin:$PATH
+
+# Maven config
+export ANT_HOME=$DEV_BASE/apache-ant/default
+export PATH=$ANT_HOME/bin:$PATH
