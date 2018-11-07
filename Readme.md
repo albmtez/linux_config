@@ -223,3 +223,45 @@ Añadimos la siguiente configuración a `$DEV_BASE/bash_profile`:
 export NODEJS_HOME=$DEV_BASE/nodejs/default/bin
 export PATH=$NODEJS_HOME:$PATH
 ```
+
+## Angular
+
+*https://github.com/angular/angular-cli/wiki*
+
+Teniendo Node.js y npm instalados, vamos a instalar Angular CLI *https://cli.angular.io/*:
+
+```
+$ npm install -g @angular/cli
+```
+
+Podemos probar la instalación creando un proyecto de prueba y lanzando el servidor:
+
+```
+$ cd $DEV_BASE/tmp
+$ ng new my-project
+$ cd my-project
+$ ng serve
+```
+
+Accedemos a la url (http://localhost:4200/) para comprobar que la aplicación está levantada.
+
+### Angular Material
+
+*https://material.angular.io/*
+
+Instalamos Angular Material, Angular CDK y Angular Animations *(https://material.angular.io/guide/getting-started)*:
+
+```
+$ npm install --save @angular/material @angular/cdk @angular/animations
+```
+
+### PrimeNG
+
+*https://www.primefaces.org/primeng/*
+
+Instalamos PrimeNG y Prime Icons *(https://www.primefaces.org/primeng/#/setup)*:
+
+```
+$ npm install primeng --save
+$ npm install primeicons --save
+```
