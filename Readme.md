@@ -376,3 +376,35 @@ drwx------ 9 user group 4096 Nov  7 17:13 apache-tomcat-9.0.12
 ## SQL Developer
 
 Recuperamos los binarios de las distintas versiones de `$SRC/sqldeveloper`. Los descomprimimos en `$DEV_BASE/sqldeveloper`.
+
+## Eclipse
+
+Recuperamos los binarios de las distintas versiones de `$SRC/eclipse`. Los descomprimimos en `$DEV_BASE/eclipse`.
+
+Creamos el directorio para los workspaces:
+
+```
+$ mkdir $DEV_BASE/eclipse_workspaces
+```
+
+### Instalación plugins Eclipse
+
+- JD-Eclipse: Seguir las instrucciones de http://jd.benow.ca/.
+- Subclipse: Instalar desde el Marketplace.
+  - Instalar el paquete libsvn-java `$ sudo apt-get install libsvn-java` para tener compatibilidad JavaHL.
+  - Buscar dónde está instalado: `$ sudo find / -name libsvnjavahl-1.so`
+  - Editar el archivo eclipse.ini para añadir la línea siguiente tras la opción “-vmargs”:
+```
+-vmargs
+-Djava.library.path=/usr/lib/x86_64-linux-gnu/jni
+```
+- PyDev
+- Shell Script (DLTK)
+- Checkstyle (eclipse-cs)
+- SonarLint
+- SQL Development Tools
+- Eclipse Docker Tooling
+- Darkest Dark
+- TestNG
+- Spring Tools
+- Angular IDE
