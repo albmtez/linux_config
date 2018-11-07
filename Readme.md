@@ -201,7 +201,7 @@ export GOPATH=$DEV_BASE/code/go
 export PATH=$GOROOT/bin:$PATH
 ```
 
-## Node.js
+## Node.js / npm
 
 *https://github.com/nodejs/help/wiki/Installation*
 
