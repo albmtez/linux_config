@@ -19,3 +19,7 @@ export PATH=$GOROOT/bin:$PATH
 # NodeJS config
 export NODEJS_HOME=$DEV_BASE/nodejs/default/bin
 export PATH=$NODEJS_HOME:$PATH
+
+# Java config
+export JAVA_HOME=$DEV_BASE/jdk/default
+export PATH=$JAVA_HOME/bin:$PATH
