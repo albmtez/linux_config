@@ -300,5 +300,5 @@ Añadimos la siguiente configuración a `$DEV_BASE/bash_profile`:
 ```
 # Java config
 export JAVA_HOME=$DEV_BASE/jdk/default
-export PATH=$JAVA_HOME/bin:$PAT
+export PATH=$JAVA_HOME/bin:$PATH
 ```
