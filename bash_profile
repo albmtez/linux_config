@@ -31,3 +31,7 @@ export PATH=$MAVEN_HOME/bin:$PATH
 # Maven config
 export ANT_HOME=$DEV_BASE/apache-ant/default
 export PATH=$ANT_HOME/bin:$PATH
+
+# MongoDB config
+export MONGODB_HOME=$DEV_BASE/mongodb/default
+export PATH=$MONGODB_HOME/bin:$PATH
