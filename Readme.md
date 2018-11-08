@@ -408,3 +408,50 @@ $ mkdir $DEV_BASE/eclipse_workspaces
 - TestNG
 - Spring Tools
 - Angular IDE
+
+## MongoDB
+
+Recuperamos los binarios de las distintas versiones de `$SRC/mongodb`. Los descomprimimos en `$DEV_BASE/mongodb` y creamos un enlace **default** al directorio de la versión que queremos usar por defecto, con lo que tendríamos:
+
+```
+user@host:~/dev/mongodb$ ll
+total 4
+lrwxrwxrwx 1 user group   26 nov  8 12:26 default -> mongodb-linux-x86_64-4.0.4
+drwx------ 3 user group 4096 nov  8 12:26 mongodb-linux-x86_64-4.0.4
+```
+
+Creamos un directorio para las bases de datos:
+
+```
+$ mkdir $DEV_BASE/mongodb_databases
+```
+
+### Configuración
+
+Añadimos la siguiente configuración a `$DEV_BASE/bash_profile`:
+
+```
+# MongoDB config
+export MONGODB_HOME=$DEV_BASE/mongodb/default
+export PATH=$MONGODB_HOME/bin:$PATH
+```
+
+### Base de datos de prueba
+
+Vamos a crear una base de datos de prueba. Para ello, creamos la estructura de directorios para almacenar sus archivos y los logs:
+
+```
+$ mkdir -p $DEV_BASE/mongodb_databases/test/db
+```
+
+Arrancamos MongoDB con:
+
+```
+$ mongod --directoryperdb --dbpath $DEV_BASE/mongodb_databases/test/db --logpath $DEV_BASE/mongodb_databases/test/log --logappend
+```
+
+Y nos podemos conectar con:
+
+```
+$ mongo
+```
