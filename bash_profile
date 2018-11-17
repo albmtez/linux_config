@@ -28,7 +28,7 @@ export PATH=$JAVA_HOME/bin:$PATH
 export MAVEN_HOME=$DEV_BASE/apache-maven/default
 export PATH=$MAVEN_HOME/bin:$PATH
 
-# Maven config
+# Ant config
 export ANT_HOME=$DEV_BASE/apache-ant/default
 export PATH=$ANT_HOME/bin:$PATH
 
