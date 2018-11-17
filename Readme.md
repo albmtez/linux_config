@@ -355,7 +355,7 @@ lrwxrwxrwx 1 user group   17 Nov  7 17:06 default -> apache-ant-1.10.5
 Añadimos la siguiente configuración a `$DEV_BASE/bash_profile`:
 
 ```
-# Maven config
+# Ant config
 export ANT_HOME=$DEV_BASE/apache-ant/default
 export PATH=$ANT_HOME/bin:$PATH
 ```
