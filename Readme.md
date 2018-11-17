@@ -455,3 +455,48 @@ Y nos podemos conectar con:
 ```
 $ mongo
 ```
+
+## Java Decompiler GUI
+
+Seguimos las indicaciones de http://jd.benow.ca/. Básicamente, descargamos el paquete .deb y lo instalamos.
+
+## Visual Studio Code
+
+Descargamos el paquete deb desde la web (https://code.visualstudio.com/) y lo instalamos. Esto añade el repositorio para descargar las actualizaciones.
+
+### Plugins
+
+Instalamos los siguientes plugins desde la terminal:
+
+* Go: ```$ code --install-extension ms-vscode.go```
+* Docker: ```$ code --install-extension peterjausovec.vscode-docker```
+* Bash Debug: Requiere la instalación del paquete bashdb ($ sudo apt-get install bashdb) ```$ code --install-extension rogalmic.bash-debug```
+* SVN: ```$ code --install-extension johnstoncode.svn-scm```
+* Vagrant: ```$ code --install-extension bbenoist.vagrant```
+* vscode-icons: ```$ code --install-extension robertohuertasm.vscode-icons```
+* GitLens: ```$ code --install-extension eamodio.gitlens```
+* Project Manager: ```$ code --install-extension alefragnani.project-manager```
+* Paste JSON as Code: ```$ code --install-extension quicktype.quicktype```
+* Bookmarks: ```$ code --install-extension alefragnani.bookmarks```
+* Live Server: ```$ code --install-extension ritwickdey.liveserver```
+* Markdown Preview Enhanced: ```$ code --install-extension shd101wyy.markdown-preview-enhanced```
+* Code Runner: ```$ code --install-extension formulahendry.code-runner```
+* vscode-faker: ```$ code --install-extension deerawan.vscode-faker```
+* Python: ```$ code --install-extension ms-python.python```
+* Debugger for Chrome: ```$ code --install-extension msjsdiag.debugger-for-chrome```
+* C/C++: ```$ code --install-extension ms-vscode.cpptools```
+* Kubernetes: ```$ code --install-extension ms-kubernetes-tools.vscode-kubernetes-tools```
+* GitHub Pull Requests: ```$ code --install-extension GitHub.vscode-pull-request-github```
+* C#: ```$ code --install-extension ms-vscode.csharp```
+* XML Tools: ```$ code --install-extension dotjoshjohnson.xml```
+* Java: Podemos instalar el paquete Java Extension Pack o los siguientes, uno a uno. ```$ code --install-extension vscjava.vscode-java-pack```
+  * Language Support for Java by Red Hat: ```$ code --install-extension redhat.java```
+  * Maven for Java: ```$ code --install-extension vscjava.vscode-maven```
+  * Debugger for Java: ```$ code --install-extension vscjava.vscode-java-debug```
+  * Java Test Runner: ```$ code --install-extension vscjava.vscode-java-test```
+  * Spring Boot Tools: ```$ code --install-extension Pivotal.vscode-spring-boot```
+  * Spring Initializr Java Support: ```$ code --install-extension vscjava.vscode-spring-initializr```
+  * Tomcat for Java: ```$ code --install-extension adashen.vscode-tomcat```
+  * Checkstyle for Java: ```$ code --install-extension shengchen.vscode-checkstyle```
+* Angular
+  * Angular Extension Pack ```$ code --install-extension loiane.angular-extension-pack```
