@@ -500,3 +500,7 @@ Instalamos los siguientes plugins desde la terminal:
   * Checkstyle for Java: ```$ code --install-extension shengchen.vscode-checkstyle```
 * Angular
   * Angular Extension Pack ```$ code --install-extension loiane.angular-extension-pack```
+
+#### Instalación automática
+
+Se pueden instalar los plugins listados anteriormente ejecutando el script `vscode_plugins_install.sh`.
