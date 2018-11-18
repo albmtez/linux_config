@@ -404,7 +404,6 @@ $ mkdir $DEV_BASE/eclipse_workspaces
 - SonarLint
 - SQL Development Tools
 - Eclipse Docker Tooling
-- Darkest Dark
 - TestNG
 - Spring Tools
 - Angular IDE
