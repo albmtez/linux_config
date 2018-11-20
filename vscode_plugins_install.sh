@@ -23,3 +23,5 @@ code --install-extension ms-vscode.csharp
 code --install-extension dotjoshjohnson.xml
 code --install-extension vscjava.vscode-java-pack
 code --install-extension loiane.angular-extension-pack
+code --install-extension wayou.vscode-todo-highlight
+code --install-extension gruntfuggly.todo-tree
