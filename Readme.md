@@ -488,6 +488,8 @@ Instalamos los siguientes plugins desde la terminal:
 * GitHub Pull Requests: ```$ code --install-extension GitHub.vscode-pull-request-github```
 * C#: ```$ code --install-extension ms-vscode.csharp```
 * XML Tools: ```$ code --install-extension dotjoshjohnson.xml```
+* TODO Hightlights: ```$ code --install-extension wayou.vscode-todo-highlight```
+* Todo Tree: ```$ code --install-extension gruntfuggly.todo-tree```
 * Java: Podemos instalar el paquete Java Extension Pack o los siguientes, uno a uno. ```$ code --install-extension vscjava.vscode-java-pack```
   * Language Support for Java by Red Hat: ```$ code --install-extension redhat.java```
   * Maven for Java: ```$ code --install-extension vscjava.vscode-maven```
