@@ -505,3 +505,40 @@ Instalamos los siguientes plugins desde la terminal:
 #### Instalación automática
 
 Se pueden instalar los plugins listados anteriormente ejecutando el script `vscode_plugins_install.sh`.
+
+## GitEye
+
+Descargamos el archiv zip de la web (https://www.collab.net/products/giteye).
+
+	# umask 0027     -> para mantener los permisos de grupo
+	# mkdir GitEye-2.0.0
+	# cp GitEye-2.0.0-linux.x86_64.zip GitEye-2.0.0
+	# cd GitEye-2.0.0
+	# unzip GitEye-2.0.0-linux.x86_64.zip
+	# rm GitEye-2.0.0-linux.x86_64.zip
+	# cd ..
+	# mkdir /opt/development/GitEye
+	# cp -R GitEye-2.0.0 /opt/development/GitEye
+	# ln -s /opt/development/GitEye/GitEye-2.0.0-linux.x86_64.zip /opt/development/GitEye/default
+
+## Gitg
+
+Instalamos el cliente git desde el repositorio:
+
+```
+$ sudo apt install gitg
+```
+
+## SmartGit
+
+Descargar el paquete .deb de la web e instalar (https://www.syntevo.com/smartgit/).
+
+## GitKraken
+
+https://www.gitkraken.com/
+
+Instalamos con snap:
+
+```
+$ sudo snap install gitkraken
+```
