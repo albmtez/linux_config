@@ -611,3 +611,29 @@ Para instalarlo, con una máquina ya arrancada con vagrant up hacemos:
 ```
 $ vagrant vbguest
 ```
+
+## Puppet
+
+```
+$ sudo apt-get install puppet
+```
+
+## Ansible
+
+Instalamos el repositorio PPA ansible/ansible e instalamos el paquete apt desde él:
+
+```
+$ sudo apt update
+$ sudo apt install software-properties-common
+$ sudo apt-add-repository --yes --update ppa:ansible/ansible
+$ sudo apt install ansible
+```
+
+## Chef
+
+https://www.chef.sh/
+
+Descargamos los paquetes .deb desde la web y los instalamos:
+
+* Chef workstation
+* Chef client
