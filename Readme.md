@@ -565,3 +565,49 @@ Añadimos al usuario al grupo vboxusers:
 ```
 $ sudo usermod -a -G vboxusers <usuario>
 ```
+
+## Vagrant
+
+Instalamos el paquete descargado de la web: https://www.vagrantup.com
+
+### Vagrant plugins
+
+Instalamos el paquete de compatibilidad con libvirt:
+
+```$ vagrant plugin install vagrant-libvirt```
+
+Si falla la instalación porque no encuentra la librería libvirt, ejecutar el comando siguiente:
+
+```
+CONFIGURE_ARGS="with-libvirt-include=/usr/include/libvirt with-libvirt-lib=/usr/lib" vagrant plugin install vagrant-libvirt
+```
+
+Conversión de boxes para su compatibilidad con distintos providers.
+
+```
+$ vagrant plugin install vagrant-mutate
+```
+
+Para convertir un box hacemos:
+
+```
+$ vagrant box mutate <box_name> <dest_provider>
+```
+
+Instalamos el plugin vagrant-disksize (https://github.com/sprotheroe/vagrant-disksize), que permite cambiar el tamaño del disco principal de la vm:
+
+```
+$ vagrant plugin install vagrant-disksize
+```
+
+Instalamos el plugin vagrant-vbguest, que nos permite instalar VBox Guest Additions:
+
+```
+$ vagrant plugin install vagrant-vbguest
+```
+
+Para instalarlo, con una máquina ya arrancada con vagrant up hacemos:
+
+```
+$ vagrant vbguest
+```
