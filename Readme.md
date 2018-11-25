@@ -542,3 +542,26 @@ Instalamos con snap:
 ```
 $ sudo snap install gitkraken
 ```
+
+## KVM
+
+```
+$ sudo apt install qemu-kvm virtinst virt-top virt-manager seabios qemu-utils ovmf
+```
+
+Añadimos el usuario al grupo libvirt:
+
+```
+$ sudo usermod -a -G libvirt <usuario>
+```
+
+Para permitir la visualización en virt-manager del uso de memoria, I/O y red hay que ir a Edición-Preferencias para habilitar las estadísticas. Después, ya podemos añadirlas en el menú Vista.
+
+## Virtualbox
+
+Seguir las instrucciones de la web (https://www.virtualbox.org/) para instalarlo (descargar el paquete .deb e instalarlo).
+Añadimos al usuario al grupo vboxusers:
+
+```
+$ sudo usermod -a -G vboxusers <usuario>
+```
