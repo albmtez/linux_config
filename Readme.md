@@ -637,3 +637,83 @@ Descargamos los paquetes .deb desde la web y los instalamos:
 
 * Chef workstation
 * Chef client
+
+## Docker / Kubernetes
+
+### Docker
+
+https://docs.docker.com/install/linux/docker-ce/ubuntu/
+
+Desinstalamos posibles antiguas versiones de Docker Engine:
+
+```
+$ sudo apt-get remove docker docker-engine docker.io
+```
+
+Instalamos Docker CE (El repositorio que se añade es el de Bionic - Ubuntu 18.04):
+
+```
+$ sudo apt-get update
+$ sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
+$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+$ sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   bionic \
+   stable"
+$ sudo apt update
+$ sudo apt install docker-ce
+```
+
+Para poder usar Docker como usuario no root, añadimos al usuario al grupo docker:
+
+```
+$ sudo usermod -aG docker your-user
+```
+
+### Docker compose
+
+https://docs.docker.com/compose/install/#install-compose
+
+Descargamos e instalamos la última versión (v1.23.1) con:
+
+```
+$ sudo curl -L "https://github.com/docker/compose/releases/download/1.23.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+```
+
+Para finalizar, le damos permisos de ejecución:
+
+```
+$ sudo chmod a+x /usr/local/bin/docker-compose
+```
+
+### Docker machine
+
+https://docs.docker.com/machine/install-machine/
+
+Instalamos la última versión (v0.16.0) ejecutando:
+
+```
+$ base=https://github.com/docker/machine/releases/download/v0.16.0 &&
+  curl -L $base/docker-machine-$(uname -s)-$(uname -m) >/tmp/docker-machine &&
+  sudo install /tmp/docker-machine /usr/local/bin/docker-machine
+```
+
+### kubectl / Minnikube
+
+https://kubernetes.io/docs/tasks/tools/install-minikube/
+
+Instalamos kubectl:
+
+```
+$ sudo apt update && sudo apt-get install -y apt-transport-https
+$ curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+$ echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
+$ sudo apt update
+$ sudo apt install -y kubectl
+```
+
+Ahora instalamos la última versión de minikube c0.30.0):
+
+```
+$ curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.30.0/minikube-linux-amd64 && chmod a+x minikube && sudo cp minikube /usr/local/bin/ && rm minikube
+```
