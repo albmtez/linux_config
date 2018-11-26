@@ -715,5 +715,5 @@ $ sudo apt install -y kubectl
 Ahora instalamos la última versión de minikube c0.30.0):
 
 ```
-$ curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.30.0/minikube-linux-amd64 && chmod a+x minikube && sudo cp minikube /usr/local/bin/ && rm minikube
+$ curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.30.0/minikube-linux-amd64 && sudo cp minikube /usr/local/bin/ && rm minikube && chmod a+r+x /usr/local/bin/minikube
 ```
