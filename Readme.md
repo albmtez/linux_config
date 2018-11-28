@@ -717,3 +717,26 @@ Ahora instalamos la última versión de minikube c0.30.0):
 ```
 $ curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.30.0/minikube-linux-amd64 && sudo cp minikube /usr/local/bin/ && rm minikube && chmod a+r+x /usr/local/bin/minikube
 ```
+
+### Helm
+
+https://github.com/helm/helm/releases/latest
+
+Descargamos el tgz con el binario de la url anterior, lo descomprimimos en el directorio **$DEV_HOME/helm** y creamos el enlace simbólico **default**:
+
+```
+user@host:~/dev/helm$ ll
+total 4
+lrwxrwxrwx 1 usger group   11 nov 28 23:18 default -> helm-2.11.0
+drwx------ 2 usger group 4096 sep 25 20:17 helm-2.11.0
+```
+
+#### Configuración
+
+Añadimos al archivo `$DEV_BASE/bash_profile` la configuración siguiente:
+
+```
+# Helm config
+export HELM_HOME=$DEV_BASE/helm/default
+export PATH=$HELM_HOME:$PATH
+```
