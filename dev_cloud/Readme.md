@@ -73,7 +73,7 @@ Instalamos y configuramos UFW:
 
 ```
 # apt install mosh
-# ufw allow 60000:60020/udp
+# ufw allow 60000:60010/udp
 ```
 
 Nos conectamos con:
