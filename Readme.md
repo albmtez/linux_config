@@ -579,7 +579,7 @@ Instalamos el paquete de compatibilidad con libvirt:
 Si falla la instalación porque no encuentra la librería libvirt, ejecutar el comando siguiente:
 
 ```
-CONFIGURE_ARGS="with-libvirt-include=/usr/include/libvirt with-libvirt-lib=/usr/lib" vagrant plugin install vagrant-libvirt
+$ sudo apt install libvirt-dev
 ```
 
 Conversión de boxes para su compatibilidad con distintos providers.
