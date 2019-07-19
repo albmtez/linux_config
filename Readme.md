@@ -469,6 +469,7 @@ Instalamos los siguientes plugins desde la terminal:
 
 * Go: ```$ code --install-extension ms-vscode.go```
 * Docker: ```$ code --install-extension peterjausovec.vscode-docker```
+* Cloud Code: ```$ code --install-extension googlecloudtools.cloudcode```
 * Bash Debug: Requiere la instalación del paquete bashdb ($ sudo apt-get install bashdb) ```$ code --install-extension rogalmic.bash-debug```
 * SVN: ```$ code --install-extension johnstoncode.svn-scm```
 * Vagrant: ```$ code --install-extension bbenoist.vagrant```
