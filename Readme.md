@@ -467,6 +467,7 @@ Descargamos el paquete deb desde la web (https://code.visualstudio.com/) y lo in
 
 Instalamos los siguientes plugins desde la terminal:
 
+* Settings Sync: ```$ code --install-extension shan.code-settings-sync```
 * Go: ```$ code --install-extension ms-vscode.go```
 * Docker: ```$ code --install-extension peterjausovec.vscode-docker```
 * Cloud Code: ```$ code --install-extension googlecloudtools.cloudcode```
