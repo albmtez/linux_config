@@ -4,7 +4,7 @@ Vamos a hacer la instalación y configuración de un entorno de desarrollo multi
 
 La instalación se basa en una serie de binarios, código fuente e instaladores que se han descargado de las páginas de referencia de cada herramienta o aplicación y que se han agrupado en una estructura de directorios (que llamaremos `$SRC`). Si quieres seguir esta guía, puedes recuperar estos archivos de las distintas páginas de descarga.
 
-La instalación se realiza sobre un **Ubuntu 18.10**.
+La instalación se realiza sobre un **Ubuntu 19.04**.
 
 ## Preparación del directorio base
 
@@ -654,14 +654,14 @@ Instalamos Docker CE (El repositorio que se añade es el de Bionic - Ubuntu 18.0
 
 ```
 $ sudo apt-get update
-$ sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
+$ sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
 $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 $ sudo add-apt-repository \
    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   bionic \
+   $(lsb_release -cs) \
    stable"
 $ sudo apt update
-$ sudo apt install docker-ce
+$ sudo apt-get install docker-ce docker-ce-cli containerd.io
 ```
 
 Para poder usar Docker como usuario no root, añadimos al usuario al grupo docker:
