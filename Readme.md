@@ -674,10 +674,10 @@ $ sudo usermod -aG docker your-user
 
 https://docs.docker.com/compose/install/#install-compose
 
-Descargamos e instalamos la última versión (v1.23.1) con:
+Descargamos e instalamos la última versión (v1.24.1) con:
 
 ```
-$ sudo curl -L "https://github.com/docker/compose/releases/download/1.23.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+$ sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 ```
 
 Para finalizar, le damos permisos de ejecución:
@@ -700,6 +700,7 @@ $ base=https://github.com/docker/machine/releases/download/v0.16.0 &&
 
 ### kubectl / Minnikube
 
+https://kubernetes.io/es/docs/tasks/tools/install-kubectl/
 https://kubernetes.io/docs/tasks/tools/install-minikube/
 
 Instalamos kubectl:
@@ -712,10 +713,10 @@ $ sudo apt update
 $ sudo apt install -y kubectl
 ```
 
-Ahora instalamos la última versión de minikube c0.30.0):
+Ahora instalamos la última versión de minikube):
 
 ```
-$ curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.30.0/minikube-linux-amd64 && sudo cp minikube /usr/local/bin/ && rm minikube && chmod a+r+x /usr/local/bin/minikube
+$ curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && sudo cp minikube /usr/local/bin/ && rm minikube && sudo chmod a+r+x /usr/local/bin/minikube
 ```
 
 ### Helm
