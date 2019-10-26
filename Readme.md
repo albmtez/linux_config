@@ -469,12 +469,12 @@ Instalamos los siguientes plugins desde la terminal:
 
 * Settings Sync: ```$ code --install-extension shan.code-settings-sync```
 * Go: ```$ code --install-extension ms-vscode.go```
-* Docker: ```$ code --install-extension peterjausovec.vscode-docker```
+* Docker: ```$ code --install-extension ms-azuretools.vscode-docker```
 * Cloud Code: ```$ code --install-extension googlecloudtools.cloudcode```
 * Bash Debug: Requiere la instalación del paquete bashdb ($ sudo apt-get install bashdb) ```$ code --install-extension rogalmic.bash-debug```
 * SVN: ```$ code --install-extension johnstoncode.svn-scm```
 * Vagrant: ```$ code --install-extension bbenoist.vagrant```
-* vscode-icons: ```$ code --install-extension robertohuertasm.vscode-icons```
+* vscode-icons: ```$ code --install-extension vscode-icons-team.vscode-icons```
 * GitLens: ```$ code --install-extension eamodio.gitlens```
 * Project Manager: ```$ code --install-extension alefragnani.project-manager```
 * Paste JSON as Code: ```$ code --install-extension quicktype.quicktype```
@@ -502,7 +502,8 @@ Instalamos los siguientes plugins desde la terminal:
   * Tomcat for Java: ```$ code --install-extension adashen.vscode-tomcat```
   * Checkstyle for Java: ```$ code --install-extension shengchen.vscode-checkstyle```
 * Angular
-  * Angular Extension Pack ```$ code --install-extension loiane.angular-extension-pack```
+  * Angular Extension Pack: ```$ code --install-extension loiane.angular-extension-pack```
+* Ansible: ```$ code --install-extension vscoss.vscode-ansible```
 
 #### Instalación automática
 
