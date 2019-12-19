@@ -11,9 +11,9 @@
 
 * [Basic tools](./develop_environment.md#Basic-tools)
 * [Virtualization and provisioning](./develop_environment.md#Virtualization-and-provisioning)
-* [Docker / Kubernetes](./develop_environment.md#Docker-/-Kubernetes)
-* [IDE / Code editors](./develop_environment.md#IDE-/-Code-editors)
-* [Languages / SDKs](./develop_environment.md#Languages-/-SDKs)
+* [Docker / Kubernetes](./develop_environment.md#Docker--Kubernetes)
+* [IDE / Code editors](./develop_environment.md#IDE--Code-editors)
+* [Languages / SDKs](./develop_environment.md#Languages--SDKs)
 * [Services](./develop_environment.md#Services)
 * [Desktop Applications](./develop_environment.md#Desktop-Applications)
 
