@@ -47,7 +47,7 @@ Change ssh port editting the file `/etc/ssh/sshd_config`, uncommenting the follo
 # Port 22
 ```
 
-Reboot the service:
+Restart the service:
 
 ```sh
 sudo systemctl restart ssh
@@ -59,6 +59,12 @@ Edit the file `/etc/ssh/sshd_config` adding the flag:
 
 ```sh
 PermitRootLogin no
+```
+
+Restart the service:
+
+```sh
+sudo systemctl restart ssh
 ```
 
 #### Use normal user instead root
