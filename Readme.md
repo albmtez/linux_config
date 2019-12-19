@@ -9,12 +9,13 @@
 
 [Develop environment](./develop_environment.md)
 
-* [Virtualization and provisioning](a.md)
-* [Docker / Kubernetes](a.md)
-* [IDE / Code editors](a.md)
-* [Languages / SDKs](a.md)
-* [Services](a.md)
-* [Desktop Applications](a.md)
+* [Basic tools](./develop_environment.md#Basic-tools)
+* [Virtualization and provisioning](./develop_environment.md#Virtualization-and-provisioning)
+* [Docker / Kubernetes](./develop_environment.md#Docker-/-Kubernetes)
+* [IDE / Code editors](./develop_environment.md#IDE-/-Code-editors)
+* [Languages / SDKs](./develop_environment.md#Languages-/-SDKs)
+* [Services](./develop_environment.md#Services)
+* [Desktop Applications](./develop_environment.md#Desktop-Applications)
 
 [Vagrant base box creation](./vagrant_base_boxes.md)
 
