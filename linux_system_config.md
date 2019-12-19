@@ -53,6 +53,14 @@ Reboot the service:
 sudo systemctl restart ssh
 ```
 
+#### Disable ssh connection to root user
+
+Edit the file `/etc/ssh/sshd_config` adding the flag:
+
+```sh
+PermitRootLogin no
+```
+
 #### Use normal user instead root
 
 Change root password:
