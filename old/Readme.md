@@ -497,10 +497,10 @@ Instalamos los siguientes plugins desde la terminal:
   * Maven for Java: ```$ code --install-extension vscjava.vscode-maven```
   * Debugger for Java: ```$ code --install-extension vscjava.vscode-java-debug```
   * Java Test Runner: ```$ code --install-extension vscjava.vscode-java-test```
-  * Spring Boot Tools: ```$ code --install-extension Pivotal.vscode-spring-boot```
-  * Spring Initializr Java Support: ```$ code --install-extension vscjava.vscode-spring-initializr```
-  * Tomcat for Java: ```$ code --install-extension adashen.vscode-tomcat```
-  * Checkstyle for Java: ```$ code --install-extension shengchen.vscode-checkstyle```
+* Spring Boot Tools: ```$ code --install-extension Pivotal.vscode-spring-boot```
+* Spring Initializr Java Support: ```$ code --install-extension vscjava.vscode-spring-initializr```
+* Tomcat for Java: ```$ code --install-extension adashen.vscode-tomcat```
+* Checkstyle for Java: ```$ code --install-extension shengchen.vscode-checkstyle```
 * Angular
   * Angular Extension Pack: ```$ code --install-extension loiane.angular-extension-pack```
 * Ansible: ```$ code --install-extension vscoss.vscode-ansible```
