@@ -15,15 +15,14 @@ Base linux configuration: partitioning, packages install, users, groups and cert
 * One disk mounted in /dev/sda.
 * 20GB of disk space.
 * Two primary partitions:
-  * /dev/sda1 for /boot.
-  * /dev/sda2 for LVM.
+    * /dev/sda1 for /boot.
+    * /dev/sda2 for LVM.
 * LVM configuration:
-  * PV: /dev/sda2 (20GB)
-  * VG: systemvg (20GB)
-  * LV:
-    * boot (500MB)
-    * root (17,5GB)
-    * swap (2GB)
+    * PV: /dev/sda2 (20GB)
+    * VG: systemvg (20GB)
+    * LV:
+        * root (17,5GB)
+        * swap (2GB)
 
 Partitions:
 
@@ -51,13 +50,21 @@ The following packages have been installed:
 * openssh-server
 * gcc
 * build-essential
-* linux-headers-server
+* linux-headers
+
+- Debian:
+    apt install sudo parted openssh-server gcc build-essential linux-headers-amd64
+- Centos:
+    yum install sudo parted openssh-server gcc kernel-devel
+    yum groupinstall 'Development Tools'
+    yum install nano wget
+
 
 #### Sudo configuration
 
 **vagrant** user can use passwordless sudo.
 
-Execute `visudo` command and paste the following line at the end of the file:
+Execute *visudo* command and paste the following line at the end of the file:
 
 ```sh
 vagrant ALL=(ALL) NOPASSWD: ALL
@@ -75,9 +82,9 @@ UseDNS no
 
 ### Bash configuration
 
-We are going to enable colorized `ls` and some alias.
+We are going to enable colorized ```ls``` and some alias.
 
-Uncomment the following lines in `/root/.bashrc` file:
+Uncomment the following lines in ```/root/.bashrc``` file:
 
 ```sh
 export LS_OPTIONS='--color_auto'
@@ -102,6 +109,14 @@ wget --no-check-certificate \
 chmod 0600 /home/vagrant/.ssh/authorized_keys
 chown -R vagrant /home/vagrant/.ssh
 ```
+
+### Clean users' homes
+
+Remove .bash_history and .bash_logout files from root and vagrant home dirs.
+
+## Resize
+
+config.vm.provision "shell", path: "resize_lvm.sh"
 
 ## Create virtualbox boxed
 
