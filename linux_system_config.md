@@ -124,6 +124,40 @@ Use this command to connect to the server:
 mosh --ssh="ssh -p <ssh_port>" username@hostname
 ```
 
+### Prevent the server from going to sleep mode
+
+To prevent the server from going to sleep mode automatically, we execute the following command:
+
+'''sh
+sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+'''
+
+To reenable auto suspend execute this command:
+
+'''sh
+sudo systemctl unmask sleep.target suspend.target hibernate.target hybrid-sleep.target
+'''
+
+### Boot in text mode
+
+In order to always boot the server in text mode (no graphical interface lauched by default), execute this command:
+
+'''sh
+sudo systemctl set-default multi-user.target
+'''
+
+You can get the default behaviour with:
+
+'''sh
+systemctl get-default
+'''
+
+Finally, to reenable graphical mode execute this command:
+
+'''sh
+sudo systemctl set-default graphical.target
+'''
+
 ## Base configuration
 
 ### Enable fractional scaling in Gnome
