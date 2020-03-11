@@ -39,6 +39,8 @@ sudo apt install net-tools less htop curl
 
 ### Securing the machine
 
+<http://acmeextension.com/secur-ssh-server/>
+
 #### SSH port
 
 Change ssh port editting the file `/etc/ssh/sshd_config`, uncommenting the following line and setting the desired port:
