@@ -158,6 +158,35 @@ Finally, to reenable graphical mode execute this command:
 sudo systemctl set-default graphical.target
 ```
 
+### zsh and oh my zsh (powerlevel10k theme)
+
+<https://github.com/ohmyzsh/ohmyzsh>
+<https://github.com/romkatv/powerlevel10k>
+
+We are going to install and configure zsh. First step: install zsh:
+
+```sh
+sudo apt install zsh
+````
+
+We can now install *oh my zsh*:
+
+```sh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+When asked, answer yes to set zsh as the default shell for the user.
+
+Let's install powerleve10k theme:
+
+```sh
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+````
+
+Set `ZSH_THEME="powerlevel10k/powerlevel10k"` in `~/.zshrc`.
+
+Finally, set `umask 077` in `~/.zshrc`.
+
 ## Base configuration
 
 ### Enable fractional scaling in Gnome
