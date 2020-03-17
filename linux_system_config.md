@@ -90,7 +90,35 @@ Disable root login through SSH editting the file `/etc/ssh/sshd_config`. Look fo
 Restart the service:
 
 ```sh
-sudo system reboot ssh
+sudo systemctl restart ssh
+```
+
+#### Do not allow passwordless sshing
+
+Add `PermitEmptyPasswords no` to the file `/etc/ssh/sshd_config`.
+
+Set max password retries adding `MaxAuthTries 3` to the file.
+
+Restart the service:
+
+```sh
+sudo systemctl restart ssh
+```
+
+#### Create a pair of ssh keys
+
+Create the keys using `ssh-keygen` and copy it to the server with `ssh-copy-id`.
+
+Then, we can disable ssh using password adding `PasswordAuthentication no` to the file `/etc/ssh/sshd_config`.
+
+Set the configuration of the connection in the client editing the file `~/.ssh/config` and adding:
+
+```sh
+Host <name>
+  HostName <hostname>
+  Port <port>
+  User <username>
+  IdentityFile <identity-file>
 ```
 
 #### Firewall
