@@ -47,12 +47,12 @@ mkdir $HOME/dev/tmp
 
 ## Configuración del entorno
 
-Haremos la configuración del entorno usando variables de entorno. Para ello, usaremos un archivo `bash_profile` que contendrá todas las definiciones.
+Haremos la configuración del entorno usando variables de entorno. Para ello, usaremos un archivo `dev_profile` que contendrá todas las definiciones.
 
 Creamos el archivo en `$HOME/dev`:
 
 ```
-touch $HOME/dev/bash_profile
+touch $HOME/dev/dev_profile
 ```
 
 Y lo inicializamos con el siguiente contenido:
@@ -74,14 +74,14 @@ Instalamos los siguientes paquetes por apt:
 - Ant
 - Maven
 - Linux Headers
-- OpenJDK 8 y OpenJDK 11
+- OpenJDK 11
 
 Algunas de estas herramientas serán "sustituidas" por versiones concretas más adelante.
 
 Para instalarlas, ejecutamos el comando:
 
 ```
-$ sudo apt install build-essential git-all cvs subversion mercurial maven ant etckeeper git-cvs git-svn subversion-tools openjdk-8-jdk openjdk-11-jdk
+$ sudo apt install build-essential git-all cvs subversion mercurial maven ant etckeeper git-cvs git-svn subversion-tools openjdk-11-jdk
 ```
 
 ## Git
@@ -123,7 +123,7 @@ $ ln -s $DEV_BASE/git/git-2.19.1 $DEV_BASE/git/default
 
 ### Configuración
 
-Añadimos la siguiente configuración a `$DEV_BASE/bash_profile`:
+Añadimos la siguiente configuración a `$DEV_BASE/dev_profile`:
 
 ```
 # Git config
@@ -160,7 +160,7 @@ $ ln -s $DEV_BASE/python/python-3.7.1 $DEV_BASE/python/default
 
 ### Configuración
 
-Añadimos la siguiente configuración a `$DEV_BASE/bash_profile`:
+Añadimos la siguiente configuración a `$DEV_BASE/dev_profile`:
 
 ```
 # Python config
@@ -171,7 +171,7 @@ export PATH=$PYTHONPATH/bin:$PATH
 Hacemos un sourcing de la configuración:
 
 ```
-$ source $DEV_BASE/bash_profile
+$ source $DEV_BASE/dev_profile
 ```
 
 ### Creación de entornos virtuales
@@ -214,7 +214,7 @@ $ mkdir -p $DEV_BASE/code/go/bin
 
 ### Configuración
 
-Añadimos la siguiente configuración a `$DEV_BASE/bash_profile`:
+Añadimos la siguiente configuración a `$DEV_BASE/dev_profile`:
 
 ```
 # Go config
@@ -238,7 +238,7 @@ drwx------ 6 user group 4096 Nov  2 10:27 node-v11.1.0
 
 ### Configuración
 
-Añadimos la siguiente configuración a `$DEV_BASE/bash_profile`:
+Añadimos la siguiente configuración a `$DEV_BASE/dev_profile`:
 
 ```
 # NodeJS config
@@ -317,7 +317,7 @@ drwx------ 8 user group 4096 Nov  7 15:49 jdk-9.0.4
 
 ### Configuración
 
-Añadimos la siguiente configuración a `$DEV_BASE/bash_profile`:
+Añadimos la siguiente configuración a `$DEV_BASE/dev_profile`:
 
 ```
 # Java config
@@ -352,7 +352,7 @@ lrwxrwxrwx 1 user group   18 Nov  7 16:54 default -> apache-maven-3.6.0
 
 ### Configuración
 
-Añadimos la siguiente configuración a `$DEV_BASE/bash_profile`:
+Añadimos la siguiente configuración a `$DEV_BASE/dev_profile`:
 
 ```
 # Maven config
@@ -374,7 +374,7 @@ lrwxrwxrwx 1 user group   17 Nov  7 17:06 default -> apache-ant-1.10.5
 
 ### Configuración
 
-Añadimos la siguiente configuración a `$DEV_BASE/bash_profile`:
+Añadimos la siguiente configuración a `$DEV_BASE/dev_profile`:
 
 ```
 # Ant config
@@ -449,7 +449,7 @@ $ mkdir $DEV_BASE/mongodb_databases
 
 ### Configuración
 
-Añadimos la siguiente configuración a `$DEV_BASE/bash_profile`:
+Añadimos la siguiente configuración a `$DEV_BASE/dev_profile`:
 
 ```
 # MongoDB config
@@ -759,7 +759,7 @@ drwx------ 2 usger group 4096 sep 25 20:17 helm-2.11.0
 
 #### Configuración
 
-Añadimos al archivo `$DEV_BASE/bash_profile` la configuración siguiente:
+Añadimos al archivo `$DEV_BASE/dev_profile` la configuración siguiente:
 
 ```
 # Helm config
