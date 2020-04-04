@@ -37,6 +37,26 @@ Reboot if needed.
 sudo apt install net-tools less htop curl
 ```
 
+### Setting the timezone
+
+You can check the configured timezone executing:
+
+```sh
+timedatectl
+```
+
+If the timezone check the available timezones with the command:
+
+```sh
+timedatectl list-timezones
+```
+
+And set the desired timezone:
+
+```sh
+sudo timedatectl set-timezone <your_time_zone>
+```
+
 ### Securing the machine
 
 <http://acmeextension.com/secur-ssh-server/>
