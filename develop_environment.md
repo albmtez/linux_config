@@ -220,4 +220,4 @@ Puppet is installed from apt.
 
 #### terraform
 
-Latest version of Terraform is installed from the official site.
+Latest version of Terraform is installed in `$HOME/dev/bin` from the official site.
