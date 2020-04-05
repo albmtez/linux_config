@@ -23,7 +23,7 @@ Each *bundle* is composed of several applications or tools, that can be installe
 ## Usage
 
 ```text
-Usage: ./dev_installer.ssh <bundle_or_package_name>
+Usage: ./dev_installer.sh <bundle_or_package_name>
     Software:
         base_config      - Directories are created and all base software is installed (root pwd required)
           dirs           - Directories creation
@@ -66,19 +66,21 @@ The software is installed in the `$HOME` user's directory. Some directories are 
 ```sh
 $HOME/dev
   |- bin
-  |- code
-  |  |- go
-  |  |  |- src
-  |  |  |- pkg
-  |  |  |- bin
+$HOME/code
+  |- go
+  |  |- src
+  |  |- pkg
+  |  |- bin
   |- tmp
 ```
 
 |Directory|Use|
 |---------|---|
-|bin      |Contains binaries and scripts|
-|go       |Used to contain the recommended structure of the Go path|
-|tmp      |Temporary directory|
+|dev      |Contains all the binaries installed with dev_installer|
+|dev/bin  |Contains binaries and scripts|
+|code     |Directory to store the source code|
+|code/go  |Used to contain the recommended structure of the Go path|
+|code/tmp |Temporary directory|
 
 This option simply creates this directory structure in the user's `$HOME` directory.
 

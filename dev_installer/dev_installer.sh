@@ -2,6 +2,7 @@
 
 script_name=$0
 DEV_BASE=$HOME/dev
+CODE_BASE=$HOME/code
 
 function usage {
   echo "Usage: $script_name <bundle_or_package_name>"
@@ -38,23 +39,23 @@ function dirs_creation {
   echo "Directories creation..."
   echo "  $DEV_BASE"
   echo "  |- bin"
-  echo "  |- code"
-  echo "  |  |- go"
-  echo "  |     |- src"
-  echo "  |     |- pkg"
-  echo "  |     |- bin"
+  echo "  $CODE_BASE"
+  echo "  |- go"
+  echo "  |  |- src"
+  echo "  |  |- pkg"
+  echo "  |  |- bin"
   echo "  |- tmp"
 
   # Main directories
   mkdir -p $DEV_BASE
   mkdir -p $DEV_BASE/bin
-  mkdir -p $DEV_BASE/code
-  mkdir -p $DEV_BASE/tmp
+  mkdir -p $CODE_BASE
+  mkdir -p $CODE_BASE/tmp
 
   # Go directories
-  mkdir -p $DEV_BASE/code/go/src
-  mkdir -p $DEV_BASE/code/go/pkg
-  mkdir -p $DEV_BASE/code/go/bin
+  mkdir -p $CODE_BASE/go/src
+  mkdir -p $CODE_BASE/go/pkg
+  mkdir -p $CODE_BASE/go/bin
 }
 
 function environment_config {
@@ -63,6 +64,9 @@ function environment_config {
 
 # Dev base dir
 export DEV_BASE=\$HOME/dev
+
+# Code base dir
+export CODE_BASE=\$HOME/code
 
 # Binaries dir added to PATH
 export PATH=\$DEV_BASE/bin:\$PATH
@@ -77,7 +81,7 @@ export PATH=\$PYTHONPATH/bin:\$PATH
 
 # Go config
 export GOROOT=\$DEV_BASE/go/default
-export GOPATH=\$DEV_BASE/code/go
+export GOPATH=\$CODE_BASE/go
 export PATH=\$GOROOT/bin:\$PATH
 
 # NodeJS config
@@ -455,13 +459,6 @@ case "$1" in
     environment_config
     base_sw
     git_install
-  "development")
-    go_install
-    dart_install
-    python_install
-    node_install
-    maven_install
-    ant_install
     ;;
   "dirs")
     dirs_creation
@@ -474,6 +471,14 @@ case "$1" in
     ;;
   "git")
     git_install
+    ;;
+  "development")
+    go_install
+    dart_install
+    python_install
+    node_install
+    maven_install
+    ant_install
     ;;
   "go")
     go_install
