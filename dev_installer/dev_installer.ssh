@@ -4,20 +4,21 @@ script_name=$0
 DEV_BASE=$HOME/dev
 
 function usage {
-  echo "Usage: $script_name <software>"
+  echo "Usage: $script_name <bundle_or_package_name>"
   echo "    Software:"
-  echo "        dev_all          - Directories are created and all software is installed (root pwd required)"
+  echo "        base_config      - Directories are created and all base software is installed (root pwd required)"
   echo "          dirs           - Directories creation"
   echo "          shell_conf     - Shell configuration, adding environment variables and executables to PATH"
   echo "          base_sw        - Install base software from apt repository (root pwd required)"
   echo "          git            - Installs git scm. You'll have to select the version to install"
+  echo "        development      - Development languages and tools"
   echo "          go             - Installs the latest version of Golang"
   echo "          dart           - Install the latest version of dart"
   echo "          python         - Installs python. You'll have to select the version to install"
   echo "          node           - Installs the latest version of Node JS"
   echo "          maven          - Installs the latest version of Maven"
   echo "          ant            - Installs the latest version of Ant"
-  echo "        virt_all         - Virtualization tools"
+  echo "        virtualization   - Virtualization tools"
   echo "          kvm            - KVM"
   echo "          virtualbox     - Virtualbox"
   echo "          vagrant        - Vagrant"
@@ -27,7 +28,7 @@ function usage {
   echo "          docker-machine - Docker machine"
   echo "          minikube       - Minikube"
   echo "          kubectl        - Kubectl"
-  echo "       provision_all     - Provision tools"
+  echo "       provisioning      - Provision tools"
   echo "          ansible        - Ansible"
   echo "          puppet         - Puppet"
   echo "          terraform      - Terraform"
@@ -450,11 +451,12 @@ function terraform_install {
 [ "$#" -ne 1 ] && echo "Error: Wrong number of arguments" && usage && exit 1
 
 case "$1" in
-  "dev_all")
+  "base_config")
     dirs_creation
     environment_config
     base_sw
     git_install
+  "development")
     go_install
     dart_install
     python_install
@@ -492,7 +494,7 @@ case "$1" in
   "ant")
     ant_install
     ;;
-  "virt_all")
+  "virtualization")
     kvm_install
     virtualbox_install
     vagrant_install
@@ -528,7 +530,7 @@ case "$1" in
   "kubectl")
     kubectl_install
     ;;
-  "provision_all")
+  "provisioning")
     ansible_install
     puppet_install
     terraform_install
@@ -543,7 +545,7 @@ case "$1" in
     terraform_install
     ;;
   *)
-    echo "Error: Argument value invalid" && usage && exit 1
+    echo "Error: Bundle or package name invalid" && usage && exit 1
     ;;
 esac
 
