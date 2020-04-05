@@ -396,7 +396,7 @@ function minikube_install {
 function kubectl_install {
   echo "kubectl install"
 
-  curl -L https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt` -o $DEV_BASE/bin/kubectl
+  curl -L https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl -o $DEV_BASE/bin/kubectl
   chmod +x $DEV_BASE/bin/kubectl
 }
 
