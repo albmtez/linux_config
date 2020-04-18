@@ -137,7 +137,7 @@ microstack.openstack keypair list
 microstack.openstack image list
 microstack.openstack security group rule list
 ```
-.
+
 To create an instance:
 
 ```sh
