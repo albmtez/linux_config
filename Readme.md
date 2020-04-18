@@ -23,6 +23,15 @@
 * [Create virtualbox boxed](./vagrant_base_boxes.md#Create-virtualbox-boxed)
 * [Create libvirt boxed](./vagrant_base_boxes.md#Create-libvirt-boxed)
 
+[OpenStack](./openstack.md)
+
+* [Microstack](./openstack.md#Microstack)
+
+[Applications](./applications.md)
+
+* [Transmission](./applications.md#Transmission)
+* [Plex Media Server](./applications.md#Plex-Media-Server)
+
 ---
 
 TODO: presentación
