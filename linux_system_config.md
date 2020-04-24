@@ -320,7 +320,7 @@ sudo update-alternatives --config gdm3.css
 
 Reboot. In the login screen we can now select Gnome vanilla as the session type.
 
-### SSH
+### SSH
 
 ```sh
 sudo apt install ssh
@@ -376,7 +376,7 @@ sudo apt install powertop
 sudo apt install htop
 ```
 
-### Laptop Mode Tools
+### Laptop Mode Tools
 
 ```sh
 sudo apt install laptop-mode-tools
