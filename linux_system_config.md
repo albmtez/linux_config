@@ -6,37 +6,6 @@
 
 ## Remote server configuracion
 
-### User configuration
-
-We set the prompt, umask, coloured ls and aliases to have a known environment, despite the linux flavour used. We edit the file `~/.bashrc` adding the following contents:
-
-```sh
-export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-umask 077
-export LS_OPTIONS='--color=auto'
-eval "`dircolors`"
-alias ls='ls $LS_OPTIONS'
-alias ll='ls $LS_OPTIONS -l'
-alias l='ls $LS_OPTIONS -lA'
-```
-
-### System update
-
-Update the packages:
-
-```sh
-sudo apt update
-sudo apt upgrade
-```
-
-Reboot if needed.
-
-### Basic packages install
-
-```sh
-sudo apt install net-tools less htop curl
-```
-
 ### Setting the timezone
 
 You can check the configured timezone executing:
@@ -208,6 +177,39 @@ Finally, to reenable graphical mode execute this command:
 sudo systemctl set-default graphical.target
 ```
 
+## Base configuration
+
+### User configuration
+
+We set the prompt, umask, coloured ls and aliases to have a known environment, despite the linux flavour used. We edit the file `~/.bashrc` adding the following contents:
+
+```sh
+export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+umask 077
+export LS_OPTIONS='--color=auto'
+eval "`dircolors`"
+alias ls='ls $LS_OPTIONS'
+alias ll='ls $LS_OPTIONS -l'
+alias l='ls $LS_OPTIONS -lA'
+```
+
+### System update
+
+Update the packages:
+
+```sh
+sudo apt update
+sudo apt upgrade
+```
+
+Reboot if needed.
+
+### Basic packages install
+
+```sh
+sudo apt install net-tools less htop curl
+```
+
 ### zsh and oh my zsh (powerlevel10k theme)
 
 <https://github.com/ohmyzsh/ohmyzsh>
@@ -231,15 +233,13 @@ Let's install powerleve10k theme:
 
 ```sh
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
-````
+```
 
 Set `ZSH_THEME="powerlevel10k/powerlevel10k"` in `~/.zshrc`.
 
 Finally, set `umask 077` in `~/.zshrc`.
 
-## Base configuration
-
-### Enable fractional scaling in Gnome
+### Enable fractional scaling in Gnome (not needed in Ubuntu since version 20.04)
 
 <https://www.omgubuntu.co.uk/2019/06/enable-fractional-scaling-ubuntu-19-04>
 
@@ -467,7 +467,7 @@ sudo apt install neofetch
 
 ### Online accounts
 
-Add Gmain account.
+Add Gmail account.
 
 ### Energy
 
@@ -540,6 +540,12 @@ Enable Gnome Shell Integration form Chrome:
 
 ```sh
 sudo apt install chrome-gnome-shell
+```
+
+In order to install all available extensions from apt repository:
+
+```sh
+sudo apt install gnome-shell-extensions
 ```
 
 * system-monitor (<https://extensions.gnome.org/extension/120/system-monitor/>)
