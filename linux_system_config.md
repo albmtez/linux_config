@@ -549,30 +549,68 @@ sudo apt install gnome-shell-extensions
 ```
 
 * system-monitor (<https://extensions.gnome.org/extension/120/system-monitor/>)
-Required dependencies:
+
+```sh
+sudo apt install gnome-shell-extension-system-monitor
+```
+
+Required dependencies if installed from the website:
 
 ```sh
 sudo apt install gir1.2-gtop-2.0 gir1.2-nm-1.0 gir1.2-cogl-1.0 gir1.2-clutter-1.0
 ```
 
 * Caffeine:<https://extensions.gnome.org/extension/517/caffeine/>
-* TopIcons: <https://extensions.gnome.org/extension/495/topicons/>
-* TopIconsFix: <https://extensions.gnome.org/extension/1674/topiconsfix/>
+
+```sh
+sudo apt install gnome-shell-extension-caffeine
+```
+
 * TopIcons Plus: <https://extensions.gnome.org/extension/1031/topicons/>
+
+```sh
+sudo apt install gnome-shell-extension-top-icons-plus
+```
+
 * Lock Keys: <https://extensions.gnome.org/extension/36/lock-keys/>
 * Status Area Horizontal Spacing: <https://extensions.gnome.org/extension/355/status-area-horizontal-spacing/>
 * Refresh Wifi Connections: <https://extensions.gnome.org/extension/905/refresh-wifi-connections/>
 * Turn off Display: <https://extensions.gnome.org/extension/897/turn-off-display/>
 * Suspend Button: <https://extensions.gnome.org/extension/826/suspend-button/>
+
+```sh
+sudo apt install gnome-shell-extension-suspend-button
+```
+
 * Freon: <https://extensions.gnome.org/extension/841/freon/>
 * gTile: <https://extensions.gnome.org/extension/28/gtile/>
 * Sound Input & Output Device Chooser: <https://extensions.gnome.org/extension/906/sound-output-device-chooser/>
 * Disconnect Wifi: <https://extensions.gnome.org/extension/904/disconnect-wifi/>
+
+```sh
+sudo apt install gnome-shell-extension-disconnect-wifi
+```
+
 * Screenshot Tool: <https://extensions.gnome.org/extension/1112/screenshot-tool/>
 * Log Out Button: <https://extensions.gnome.org/extension/1143/logout-button/>
+
+```sh
+sudo apt install gnome-shell-extension-log-out-button
+```
+
 * Touchpad Indicator: <https://extensions.gnome.org/extension/131/touchpad-indicator/>
 * Multi Monitor add-on: <https://extensions.gnome.org/extension/921/multi-monitors-add-on/>
+
+```sh
+sudo apt install gnome-shell-extension-multi-monitors
+```
+
 * Alternate Tab: <https://extensions.gnome.org/extension/15/alternatetab/>
+* Bluetooth Quick Connect: <https://extensions.gnome.org/extension/1401/bluetooth-quick-connect/>
+
+```sh
+sudo apt install gnome-shell-extension-bluetooth-quick-connect
+```
 
 ### Solaar
 
