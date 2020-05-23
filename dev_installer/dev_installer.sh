@@ -183,9 +183,7 @@ function python_install {
   git clone https://github.com/python/cpython.git
   cd cpython
   git fetch --tags
-  git tag -l --sort=-v:refname
-  echo "Input version to install:"
-  read tag
+  tag=$(git tag -l --sort=-v:refname | grep -oP '^v[0-9\.]+$' | head -n 1)
 
   # Check if already installed
   [ -d $DEV_BASE/python/python-$tag ] && echo "Python version ${tag} already installed!" && rm -rf $tmpDir && unset tmpDir && exit 1
