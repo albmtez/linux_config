@@ -104,7 +104,7 @@ function base_sw {
   echo "Base software installation"
   echo "You'll be required to enter root password"
   sudo apt update
-  sudo apt install -y build-essential git-all cvs subversion mercurial maven ant etckeeper \
+  sudo apt install -y build-essential git cvs subversion mercurial maven ant etckeeper \
                         git-cvs git-svn subversion-tools openjdk-11-jdk \
                         dh-autoreconf libcurl4-gnutls-dev libexpat1-dev gettext libz-dev \
                         libssl-dev asciidoc xmlto docbook2x install-info \
@@ -118,9 +118,7 @@ function git_install {
   git clone https://github.com/git/git.git
   cd git
   git fetch --tags
-  git tag -l --sort=-v:refname
-  echo "Input version to install:"
-  read tag
+  tag=$(git tag -l --sort=-v:refname | grep -oP '^v[0-9\.]+$' | head -n 1)
 
   # Check if already installed
   [ -d $DEV_BASE/git/git-$tag ] && echo "Git version ${tag} already installed!" && rm -rf $tmpDir && unset tmpDir && exit 1
