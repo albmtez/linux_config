@@ -1,0 +1,60 @@
+[AMZ Apache personal]
+title=Web Server (HTTP) Personal
+description=Apache web server for personal use only
+ports=8080/tcp
+
+[AMZ Apache public]
+title=Web Server (HTTP) Public
+description=Apache web server for public access
+ports=8088/tcp
+
+[AMZ Apache Secure]
+title=Web Server (HTTPS)
+description=Apache web server secured
+ports=443/tcp
+
+[AMZ Apache Full]
+title=Web Server (HTTP, HTTPS) Personal and Public
+description=Apache web server all accesses allowed (personal / public)
+ports=8080,8088,443/tcp
+
+[AMZ Mosh]
+title=Mosh (mobile shell)
+description=Mobile shell that supports roaming and itelligent local echo
+ports=60000:60010/udp
+
+[AMZ OpenSSH]
+title=Secure shell server
+description=OpenSSH is a free implementation of the Secure Shell protocol
+ports=22022/tcp
+
+[AMZ Transmission]
+title=Transmission
+description=Transmission web interface
+ports=9091/tcp
+
+[AMZ CodeServer]
+title=CodeServer
+description=Visual Studio Code server
+ports=8081
+
+[AMZ plexmediaserver]
+title=Plex Media Server (Standard)
+description=The Plex Media Server
+ports=32400/tcp|3005/tcp|5353/udp|8324/tcp|32410:32414/udp
+
+[AMZ plexmediaserver-dlna]
+title=Plex Media Server (DLNA)
+description=The Plex Media Server (additional DLNA capability only)
+ports=1900/udp|32469/tcp
+
+[AMZ plexmediaserver-all]
+title=Plex Media Server (Standard + DLNA)
+description=The Plex Media Server (with additional DLNA capability)
+ports=32400/tcp|3005/tcp|5353/udp|8324/tcp|32410:32414/udp|1900/udp|32469/tcp
+
+[AMZ Openstack]
+title=Openstack Horizon
+description=Openstack Horizon Dashboard
+ports=80/tcp
+
