@@ -179,7 +179,7 @@ sudo systemctl set-default graphical.target
 
 ## Base configuration
 
-### User configuration
+### User configuration (not needed in Ubuntu)
 
 We set the prompt, umask, coloured ls and aliases to have a known environment, despite the linux flavour used. We edit the file `~/.bashrc` adding the following contents:
 
@@ -208,51 +208,6 @@ Reboot if needed.
 
 ```sh
 sudo apt install net-tools less htop curl
-```
-
-### zsh and oh my zsh (powerlevel10k theme)
-
-<https://github.com/ohmyzsh/ohmyzsh>
-<https://github.com/romkatv/powerlevel10k>
-
-We are going to install and configure zsh. First step: install zsh:
-
-```sh
-sudo apt install zsh
-````
-
-We can now install *oh my zsh*:
-
-```sh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-```
-
-When asked, answer yes to set zsh as the default shell for the user.
-
-Let's install powerleve10k theme:
-
-```sh
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
-```
-
-Set `ZSH_THEME="powerlevel10k/powerlevel10k"` in `~/.zshrc`.
-
-Finally, set `umask 077` in `~/.zshrc`.
-
-### Enable fractional scaling in Gnome (not needed in Ubuntu since version 20.04)
-
-<https://www.omgubuntu.co.uk/2019/06/enable-fractional-scaling-ubuntu-19-04>
-
-In order to enable screen scaling in values between 100% and 200%, execute the following command for `xorg`:
-
-```sh
-gsettings set org.gnome.mutter experimental-features "['x11-randr-fractional-scaling']"
-```
-
-os this other command for `wayland`:
-
-```sh
-gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
 ```
 
 ### Umask, $HOME permissions and bash configuration
@@ -302,9 +257,56 @@ alias ll='ls -l'
 
 Logout and login to have these modifications applied.
 
+### zsh and oh my zsh (powerlevel10k theme)
+
+<https://github.com/ohmyzsh/ohmyzsh>
+<https://github.com/romkatv/powerlevel10k>
+
+We are going to install and configure zsh. First step: install zsh:
+
+```sh
+sudo apt install zsh
+````
+
+We can now install *oh my zsh*:
+
+```sh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+When asked, answer yes to set zsh as the default shell for the user.
+
+Let's install powerleve10k theme:
+
+```sh
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+```
+
+Set `ZSH_THEME="powerlevel10k/powerlevel10k"` in `~/.zshrc`.
+
+Finally, set `umask 077` in `~/.zshrc`.
+
+Install the recommended fonts: <https://github.com/romkatv/powerlevel10k#fonts>.
+
+### Enable fractional scaling in Gnome (not needed in Ubuntu since version 20.04)
+
+<https://www.omgubuntu.co.uk/2019/06/enable-fractional-scaling-ubuntu-19-04>
+
+In order to enable screen scaling in values between 100% and 200%, execute the following command for `xorg`:
+
+```sh
+gsettings set org.gnome.mutter experimental-features "['x11-randr-fractional-scaling']"
+```
+
+os this other command for `wayland`:
+
+```sh
+gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
+```
+
 ### Install vanilla Gnome
 
-<https://www.serverlab.ca/tutorials/linux/administration-linux/how-to-install-vanilla-gnome-on-ubuntu-18-04/>
+<https://technastic.com/install-stock-gnome-shell-on-ubuntu/>
 
 To use Gnome vanilla desktop we have to first install `gnome-session`:
 
@@ -312,18 +314,36 @@ To use Gnome vanilla desktop we have to first install `gnome-session`:
 sudo apt install -y gnome-session
 ```
 
-Then, we can set Gnome 3 vanilla as the default desktop:
+To get the stock Gnome experience, install the following package:
 
 ```sh
-sudo update-alternatives --config gdm3.css
+sudo apt install -y ubuntu-gnome-default-settings
 ```
 
-Reboot. In the login screen we can now select Gnome vanilla as the session type.
+Restore the stock Gnome theme:
+
+```sh
+sudo apt install -y vanilla-gnome-default-settings vanilla-gnome-desktop
+```
+
+Install the Gnome desktop packages:
+
+```sh
+sudo apt install -y ubuntu-gnome-desktop
+```
+
+Now you can login selecting the Gnome desktop on the login screen advanced options.
 
 ### SSH
 
 ```sh
 sudo apt install ssh
+```
+
+### Mosh
+
+```sh
+sudo apt install mosh
 ```
 
 ### Uncomplicated Firewall
