@@ -346,13 +346,13 @@ function docker_install {
   sudo apt install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
 
   # Add GPG key.
-  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 
   # Configure apt repository.
   sudo add-apt-repository \
-       "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-       $(lsb_release -cs) \
-       stable"
+        "deb [arch=amd64] https://download.docker.com/linux/debian \
+        $(lsb_release -cs) \
+        stable"
 
   # Install the latest version of Docker Engine - Community and containerd.
   sudo apt update
@@ -401,8 +401,6 @@ function ansible_install {
   echo "You'll be required to enter root password"
 
   sudo apt update
-  sudo apt install -y software-properties-common
-  sudo apt-add-repository --yes --update ppa:ansible/ansible
   sudo apt install -y ansible
 }
 
@@ -418,10 +416,7 @@ function terraform_install {
   echo "Terraform install"
 
   # Get the latest version
-  latest=$(wget -qO- https://releases.hashicorp.com/terraform/ | grep -oP 'terraform_[0-9\.]+' | grep -oP '[0-9\.]+' | head -n 1)
-
-  # Check if already installed
-  [ -d $DEV_BASE/terraform/terraform-"${latest}" ] && echo "Terraform version ${latest} already installed" && exit 1
+  latest=$(wget -qO- https://releases.hashicorp.com/terraform/ | grep -oP 'terraform_[0-9\.]+<' | grep -oP 'terraform_[0-9.]+' | grep -oP '[0-9\.]+' | head -n 1)
 
   # Download zip file
   tmpDir=$(mktemp -d)
