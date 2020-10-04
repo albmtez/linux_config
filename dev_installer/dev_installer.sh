@@ -141,7 +141,7 @@ function go_install {
   
   # Find latest version
   echo "Finding latest version of Go for AMD64..."
-  url="$(wget -qO- https://golang.org/dl/ | grep -oP 'https:\/\/dl\.google\.com\/go\/go([0-9\.]+)\.linux-amd64\.tar\.gz' | head -n 1 )"
+  url="$(wget -qO- https://golang.org/dl/ | grep -oP '\/dl\/go([0-9\.]+)\.linux-amd64\.tar\.gz' | head -n 1 )"
   latest="$(echo $url | grep -oP 'go[0-9\.]+' | grep -oP '[0-9\.]+' | head -c -2 )"
 
   # Check if already installed
@@ -151,7 +151,7 @@ function go_install {
   tmpDir=$(mktemp -d)
   cd ${tmpDir}
   echo "Downloading latest Go for AMD64: ${latest}"
-  wget --quiet --continue --show-progress "${url}"
+  wget --quiet --continue --show-progress "https://golang.org${url}"
   unset url
 
   mkdir -p $DEV_BASE/go
