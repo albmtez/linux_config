@@ -33,6 +33,7 @@ function usage {
   echo "          ansible        - Ansible"
   echo "          puppet         - Puppet"
   echo "          terraform      - Terraform"
+  echo "          tfm_proxmox    - Terraform provider for Proxmox"
 }
 
 function dirs_creation {
@@ -441,6 +442,20 @@ function terraform_install {
   unset latest
 }
 
+function tfm_proxmox_install {
+  cd $CODE_BASE/tmp
+  git clone https://github.com/Telmate/terraform-provider-proxmox.git
+  cd terraform-provider-proxmox
+  go install github.com/Telmate/terraform-provider-proxmox/cmd/terraform-provider-proxmox
+  go install github.com/Telmate/terraform-provider-proxmox/cmd/terraform-provisioner-proxmox
+  make
+  mkdir ~/.terraform.d/plugins
+  cp bin/terraform-provider-proxmox ~/.terraform.d/plugins
+  cp bin/terraform-provisioner-proxmox ~/.terraform.d/plugins
+  cd $CODE_BASE/tmp
+  rm -rf terraform-provider-proxmox
+}
+
 [[ "$@" = "" ]] && usage && exit 1
 [ "$#" -ne 1 ] && echo "Error: Wrong number of arguments" && usage && exit 1
 
@@ -529,6 +544,7 @@ case "$1" in
     ansible_install
     puppet_install
     terraform_install
+    tfm_proxmox_install
     ;;
   "ansible")
     ansible_install
@@ -538,6 +554,9 @@ case "$1" in
     ;;
   "terraform")
     terraform_install
+    ;;
+  "tfm_proxmox")
+    tfm_proxmox_install
     ;;
   *)
     echo "Error: Bundle or package name invalid" && usage && exit 1
