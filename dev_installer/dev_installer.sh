@@ -27,9 +27,11 @@ function usage {
   echo "          docker         - Docker engine Community"
   echo "          docker-compose - Docker compose"
   echo "          docker-machine - Docker machine"
+  echo "        kubernetes_all    - Kubernetes tools"
   echo "          minikube       - Minikube"
   echo "          kubectl        - Kubectl"
-  echo "       provisioning      - Provision tools"
+  echo "          k3sup          - K3supm 'ketchup'"
+  echo "        provisioning      - Provision tools"
   echo "          ansible        - Ansible"
   echo "          puppet         - Puppet"
   echo "          terraform      - Terraform"
@@ -397,6 +399,17 @@ function kubectl_install {
   chmod +x $DEV_BASE/bin/kubectl
 }
 
+function k3sup_install {
+  echo "k3sup install"
+
+  tmpDir=$(mktemp -d)
+  cd ${tmpDir}
+  curl -sLS https://get.k3sup.dev | sh
+  mv k3sup $DEV_BASE/bin
+  rm -rf ${tmpDir}
+  unset tmpDir
+}
+
 function ansible_install {
   echo "Ansible install"
   echo "You'll be required to enter root password"
@@ -522,8 +535,6 @@ case "$1" in
     docker_install
     docker_compose_install
     docker_machine_install
-    minikube_install
-    kubectl_install
     ;;
   "docker")
     docker_install
@@ -534,11 +545,19 @@ case "$1" in
   "docker-machine")
     docker_machine_install
     ;;
+  "kubernetes_all")
+    minikube_install
+    kubectl_install
+    k3sup_install
+    ;;
   "minikube")
     minikube_install
     ;;
   "kubectl")
     kubectl_install
+    ;;
+  "k3sup")
+    k3sup_install
     ;;
   "provisioning")
     ansible_install
