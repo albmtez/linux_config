@@ -236,7 +236,7 @@ function maven_install {
 
   # Find latest version
   echo "Finding latest version of Apache Maven for AMD64..."
-  latest="$(wget -qO- https://apache.brunneis.com/maven/maven-3/ | grep -oP '[0-9\.]+/<' | grep -oP '[0-9\.]+' | tail -n 1)"
+  latest="$(wget -qO- https://dlcdn.apache.org/maven/maven-3/ | grep -oP '[0-9\.]+/<' | grep -oP '[0-9\.]+' | tail -n 1)"
 
   # Check if already installed
   [ -d $DEV_BASE/apache-maven/apache-maven-"${latest}" ] && echo "Apache Maven version ${latest} already installed!" && exit 0
@@ -245,7 +245,7 @@ function maven_install {
   tmpDir=$(mktemp -d)
   cd ${tmpDir}
   echo "Downloading latest Apache Maven for AMD64: ${latest}"
-  wget --quiet --continue --show-progress https://apache.brunneis.com/maven/maven-3/"${latest}"/binaries/apache-maven-"${latest}"-bin.tar.gz
+  wget --quiet --continue --show-progress https://dlcdn.apache.org/maven/maven-3/"${latest}"/binaries/apache-maven-"${latest}"-bin.tar.gz
   unset url
 
   mkdir -p $DEV_BASE/apache-maven
