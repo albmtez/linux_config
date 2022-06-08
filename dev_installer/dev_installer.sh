@@ -309,7 +309,8 @@ function virtualbox_install {
   # Recompile the kernel moduoe an install it
   user=$(whoami)
   sudo apt -y install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
-  sudo add-apt-repository "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib"
+  release_name=$(lsb_release -cs)
+  sudo add-apt-repository "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian $release_name contrib"
   wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
   wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
   sudo apt update
@@ -317,6 +318,7 @@ function virtualbox_install {
   sudo apt install -y virtualbox-6.1
   sudo usermod -a -G vboxusers $user
   unset user
+  unset release_name
 }
 
 function vagrant_install {
@@ -471,6 +473,22 @@ function tfm_proxmox_install {
 
 [[ "$@" = "" ]] && usage && exit 1
 [ "$#" -ne 1 ] && echo "Error: Wrong number of arguments" && usage && exit 1
+
+# Determine OS platform
+UNAME=$(uname | tr "[:upper:]" "[:lower:]")
+# If Linux, try to determine specific distribution
+if [ "$UNAME" = "linux" ]; then
+    # If available, use LSB to identify distribution
+    if [ -f /etc/lsb-release -o -d /etc/lsb-release.d ]; then
+        export DISTRO=$(lsb_release -i | cut -d: -f2 | sed s/'^\t'//)
+    # Otherwise, use release info file
+    else
+        export DISTRO=$(ls -d /etc/[A-Za-z]*[_-][rv]e[lr]* | grep -v "lsb" | cut -d'/' -f3 | cut -d'-' -f1 | cut -d'_' -f1)
+    fi
+fi
+# For everything else (or if above failed), just use generic identifier
+[ "$DISTRO" = "" ] && export DISTRO=$UNAME
+unset UNAME
 
 case "$1" in
   "base_config")
