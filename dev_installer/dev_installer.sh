@@ -98,6 +98,9 @@ export PATH=\$MAVEN_HOME/bin:\$PATH
 # Ant config
 export ANT_HOME=\$DEV_BASE/apache-ant/default
 export PATH=\$ANT_HOME/bin:\$PATH
+
+# Aliases
+alias k=kubectl
 EOL
 
   cp $script_name $DEV_BASE
