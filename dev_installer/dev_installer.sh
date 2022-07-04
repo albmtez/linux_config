@@ -31,7 +31,7 @@ function usage {
   echo "        kubernetes_all   - Kubernetes tools"
   echo "          minikube       - Minikube"
   echo "          kubectl        - Kubectl"
-  echo "          kubectx        - Kubects"
+  echo "          kubectx        - Kubectx"
   echo "          kubens         - Kubens"
   echo "          k3sup          - K3sup 'ketchup'"
   echo "          k3d            - K3D"
