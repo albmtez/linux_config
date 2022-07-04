@@ -7,9 +7,10 @@ CODE_BASE=$HOME/code
 function usage {
   echo "Usage: $script_name <bundle_or_package_name>"
   echo "    Software:"
-  echo "        base_config      - Directories are created and all base software is installed (root pwd required)"
+  echo "        base_config      - Directories are created and shell configured"
   echo "          dirs           - Directories creation"
   echo "          shell_conf     - Shell configuration, adding environment variables and executables to PATH"
+  echo "        fundamentals     - Fundamental development software install"
   echo "          base_sw        - Install base software from apt repository (root pwd required)"
   echo "          git            - Installs git scm. You'll have to select the version to install"
   echo "        development      - Development languages and tools"
@@ -27,11 +28,11 @@ function usage {
   echo "          docker         - Docker engine Community"
   echo "          docker-compose - Docker compose"
   echo "          docker-machine - Docker machine"
-  echo "        kubernetes_all    - Kubernetes tools"
+  echo "        kubernetes_all   - Kubernetes tools"
   echo "          minikube       - Minikube"
   echo "          kubectl        - Kubectl"
-  echo "          k3sup          - K3supm 'ketchup'"
-  echo "        provisioning      - Provision tools"
+  echo "          k3sup          - K3sup 'ketchup'"
+  echo "        provisioning     - Provision tools"
   echo "          ansible        - Ansible"
   echo "          puppet         - Puppet"
   echo "          terraform      - Terraform"
@@ -505,6 +506,8 @@ case "$1" in
   "base_config")
     dirs_creation
     environment_config
+    ;;
+  "fundamentals")
     base_sw
     git_install
     ;;
