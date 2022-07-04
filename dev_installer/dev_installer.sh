@@ -32,6 +32,7 @@ function usage {
   echo "          minikube       - Minikube"
   echo "          kubectl        - Kubectl"
   echo "          k3sup          - K3sup 'ketchup'"
+  echo "          k3d            - K3D"
   echo "        provisioning     - Provision tools"
   echo "          ansible        - Ansible"
   echo "          puppet         - Puppet"
@@ -424,6 +425,17 @@ function k3sup_install {
   unset tmpDir
 }
 
+function k3d_install {
+  echo "k3d install"
+  echo "You'll be required to enter root password"
+
+  USR=$(whoami)
+  GRP=$(id -g -n)
+  curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash
+  sudo mv /usr/local/bin/k3d $DEV_BASE/bin
+  sudo chown $USR:$GRP $DEV_BASE/bin/k3d
+}
+
 function ansible_install {
   echo "Ansible install"
   echo "You'll be required to enter root password"
@@ -581,6 +593,7 @@ case "$1" in
     minikube_install
     kubectl_install
     k3sup_install
+    k3d_install
     ;;
   "minikube")
     minikube_install
@@ -590,6 +603,9 @@ case "$1" in
     ;;
   "k3sup")
     k3sup_install
+    ;;
+  "k3d")
+    k3d_install
     ;;
   "provisioning")
     ansible_install
