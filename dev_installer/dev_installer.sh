@@ -31,6 +31,8 @@ function usage {
   echo "        kubernetes_all   - Kubernetes tools"
   echo "          minikube       - Minikube"
   echo "          kubectl        - Kubectl"
+  echo "          kubectx        - Kubects"
+  echo "          kubens         - Kubens"
   echo "          k3sup          - K3sup 'ketchup'"
   echo "          k3d            - K3D"
   echo "        provisioning     - Provision tools"
@@ -103,6 +105,8 @@ export PATH=\$ANT_HOME/bin:\$PATH
 
 # Aliases
 alias k=kubectl
+alias kcc=kubectx
+alias ns=kubens
 EOL
 
   cp $script_name $DEV_BASE
@@ -414,6 +418,22 @@ function kubectl_install {
   chmod +x $DEV_BASE/bin/kubectl
 }
 
+function kubectx_install {
+  echo "kubectx install"
+
+  git clone https://github.com/ahmetb/kubectx.git
+  cp kubectx/kubectx $DEV_BASE/bin
+  rm -rf kubectx
+}
+
+function kubens_install {
+  echo "kubens install"
+
+  git clone https://github.com/ahmetb/kubectx.git
+  cp kubectx/kubens $DEV_BASE/bin
+  rm -rf kubectx
+}
+
 function k3sup_install {
   echo "k3sup install"
 
@@ -592,6 +612,8 @@ case "$1" in
   "kubernetes_all")
     minikube_install
     kubectl_install
+    kubextx_install
+    kubens_install
     k3sup_install
     k3d_install
     ;;
@@ -600,6 +622,18 @@ case "$1" in
     ;;
   "kubectl")
     kubectl_install
+    ;;
+  "kubectx")
+    kubectx_install
+    ;;
+  "kubens")
+    kubens_install
+    ;;
+  "kubectx")
+    kubectx_install
+    ;;
+  "kubens")
+    kubens_install
     ;;
   "k3sup")
     k3sup_install
