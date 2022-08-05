@@ -36,6 +36,7 @@ function usage {
   echo "          k3sup          - K3sup 'ketchup'"
   echo "          k3d            - K3D"
   echo "          kind           - Kind"
+  echo "          knative        - Knative CLI"
   echo "        provisioning     - Provision tools"
   echo "          ansible        - Ansible"
   echo "          puppet         - Puppet"
@@ -467,6 +468,16 @@ function kind_install {
   unset url
 }
 
+function knative_install (
+  echo "Knative CLI install"
+
+  url=$(curl -s https://api.github.com/repos/knative/client/releases/latest | grep "browser_download_url" | grep linux-amd64 | awk '{print $2}' | tr -d \")
+  wget $url
+  mv kn-linux-amd64 $DEV_BASE/bin/kn
+  chmod +x $DEV_BASE/bin/kn
+  unset url
+)
+
 function ansible_install {
   echo "Ansible install"
   echo "You'll be required to enter root password"
@@ -628,6 +639,7 @@ case "$1" in
     k3sup_install
     k3d_install
     kind_install
+    knative_install
     ;;
   "minikube")
     minikube_install
@@ -655,6 +667,9 @@ case "$1" in
     ;;
   "kind")
     kind_install
+    ;;
+  "knative")
+    knative_install
     ;;
   "provisioning")
     ansible_install
