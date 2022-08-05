@@ -35,6 +35,7 @@ function usage {
   echo "          kubens         - Kubens"
   echo "          k3sup          - K3sup 'ketchup'"
   echo "          k3d            - K3D"
+  echo "          kind           - Kind"
   echo "        provisioning     - Provision tools"
   echo "          ansible        - Ansible"
   echo "          puppet         - Puppet"
@@ -456,6 +457,16 @@ function k3d_install {
   sudo chown $USR:$GRP $DEV_BASE/bin/k3d
 }
 
+function kind_install {
+  echo "kind install"
+
+  url=$(curl -s https://api.github.com/repos/kubernetes-sigs/kind/releases/latest | grep "browser_download_url" | grep linux-amd64\" | awk '{print $2}' | tr -d \")
+  wget $url
+  mv kind-linux-amd64 $DEV_BASE/bin/kind
+  chmod +x $DEV_BASE/bin/kind
+  unset url
+}
+
 function ansible_install {
   echo "Ansible install"
   echo "You'll be required to enter root password"
@@ -616,6 +627,7 @@ case "$1" in
     kubens_install
     k3sup_install
     k3d_install
+    kind_install
     ;;
   "minikube")
     minikube_install
@@ -640,6 +652,9 @@ case "$1" in
     ;;
   "k3d")
     k3d_install
+    ;;
+  "kind")
+    kind_install
     ;;
   "provisioning")
     ansible_install
