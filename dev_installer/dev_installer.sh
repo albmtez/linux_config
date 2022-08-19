@@ -336,18 +336,9 @@ function vagrant_install {
   echo "Vagrant install"
   echo "You'll be required to enter root password"
 
-  # Find latest vagrant version
-  latest=$(wget -qO- https://releases.hashicorp.com/vagrant/ | grep -oP '[0-9\.]+<' | grep -oP '[0-9\.]+' | head -n 1)
-
-  # Download latest vagrant package
-  tmpDir=$(mktemp -d)
-  cd $tmpDir
-  wget --quiet --continue --show-progress https://releases.hashicorp.com/vagrant/"${latest}"/vagrant_"${latest}"_x86_64.deb
-
-  # Install and clean
-  sudo dpkg -i ./vagrant_"${latest}"_x86_64.deb
-  unset latest
-  rm -rf $tmpDir
+  wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
+  echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+  sudo apt update && sudo apt install vagrant
 }
 
 function docker_install {
