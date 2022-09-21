@@ -24,6 +24,8 @@ function usage {
   echo "          kvm            - KVM"
   echo "          virtualbox     - Virtualbox"
   echo "          vagrant        - Vagrant"
+  echo "          vagrant-libvirt- Vagrant libvirt plugin"
+  echo "          vagrant-mutate - Vagrant mutate plugin"
   echo "        docker_all       - Docker engine and tools"
   echo "          docker         - Docker engine Community"
   echo "          docker-compose - Docker compose"
@@ -299,7 +301,7 @@ function kvm_install {
 
   # Install packages from apt repositories
   echo "You'll be required to enter root password"
-  sudo apt install -y qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils virtinst libvirt-daemon virt-top virt-manager seabios qemu-utils ovmf
+  sudo apt install -y qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils virtinst libvirt-daemon virt-top virt-manager seabios qemu-utils ovmf qemu libvirt-daemon-system libvirt-clients libxslt-dev libxml2-dev libvirt-dev zlib1g-dev ruby-dev ruby-libvirt ebtables dnsmasq-base
 
   # Add user to libvirt and libvirt-qemu groups
   user=$(whoami)
@@ -340,6 +342,14 @@ function vagrant_install {
   echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
   sudo apt update && sudo apt install vagrant
 }
+
+function vagrant_plugin_libvirt_install {
+  vagrant plugin install vagrant-libvirt
+}
+
+function vagrant_plugin_mutate_install {
+  vagrant plugin install vagrant-mutate
+ }
 
 function docker_install {
   echo "Docker install"
@@ -598,6 +608,8 @@ case "$1" in
     kvm_install
     virtualbox_install
     vagrant_install
+    vagrant_plugin_libvirt_install
+    vagrant_plugin_mutate_install
     ;;
   "kvm")
     kvm_install
@@ -607,6 +619,12 @@ case "$1" in
     ;;
   "vagrant")
     vagrant_install
+    ;;
+  "vagrant-libvirt")
+    vagrant_plugin_libvirt_install
+    ;;
+  "vagrant-mutate")
+    vagrant_plugin_mutate_install
     ;;
   "docker_all")
     docker_install
